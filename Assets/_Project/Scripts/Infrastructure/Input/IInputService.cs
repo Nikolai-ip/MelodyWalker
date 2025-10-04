@@ -7,7 +7,9 @@ namespace _Project.Scripts.Infrastructure.Input
     public interface IInputService
     {
         event Action CastApplied;
+        event Action CastCancelled; 
         event Action<Note> NotePressed;
-        Vector3 MoveToPos { get; }
+        Vector2 MouseScreenPosition { get; }
+        void TogglePlayerInput(bool isLocked);
     }
 }
