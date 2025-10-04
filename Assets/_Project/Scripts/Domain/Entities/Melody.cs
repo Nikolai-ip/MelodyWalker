@@ -2,7 +2,7 @@
 
 namespace _Project.Scripts.Domain.Entities
 {
-    public struct Melody
+    public class Melody
     {
         public List<Tact> Tacts { get; }
 

@@ -8,7 +8,7 @@ namespace _Project.Scripts.Infrastructure.Input
     {
         event Action CastApplied;
         event Action CastCancelled; 
-        event Action<Note> NotePressed;
+        event Action<NoteIndex> NotePressed;
         Vector2 MouseScreenPosition { get; }
         void TogglePlayerInput(bool isLocked);
     }

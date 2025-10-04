@@ -1,6 +1,6 @@
 ﻿namespace _Project.Scripts.Domain.Entities
 {
-    public struct Note
+    public class Note
     {
         public int NoteIndex { get; }
 
