@@ -3,32 +3,21 @@ using _Project.Scripts.Infrastructure.Input;
 using UnityEngine;
 using Zenject;
 
-namespace _Project.Scripts.Application.UseCases
+namespace _Project.Scripts.Application.UseCases.Player
 {
-    public class PlayerMover : MonoBehaviour
+    public class MouseTargetCalculator : MonoBehaviour
     {
         private const int MaxMouseHits = 10;
         private readonly RaycastHit[] _rayCastHits = new RaycastHit[MaxMouseHits];
 
         private IInputService _inputService;
-        
-        private Vector3 _target;
-        private Transform _transform;
-        
-        [SerializeField] private float _speed;
-        [SerializeField] private Vector3 _offset;
 
+        public Vector3 Target { get; private set; }
+        
         [Inject]
         private void Construct(IInputService inputService) => _inputService = inputService;
 
-        private void Awake() => _transform = transform;
-
-        private void Update()
-        {
-            CalculateTarget();
-            
-            MoveToTarget();
-        }
+        private void Update() => CalculateTarget();
 
         private void CalculateTarget()
         {
@@ -41,10 +30,13 @@ namespace _Project.Scripts.Application.UseCases
             if (hitsCount == 0)
                 return;
 
-            RaycastHit? currentHit = null;  
+            RaycastHit? currentHit = null;
             
-            foreach (var hit in _rayCastHits)
+            foreach (RaycastHit hit in _rayCastHits)
             {
+                if (hit.collider == null)
+                    continue;
+                
                 if (hit.collider.TryGetComponent(out Ground ground))
                 {
                     currentHit = hit;
@@ -54,15 +46,8 @@ namespace _Project.Scripts.Application.UseCases
 
             if (!currentHit.HasValue)
                 return;
-
-            _target = currentHit.Value.point;
-        }
-
-        private void MoveToTarget()
-        {
-            _transform.position = Vector3.Lerp(_transform.position, _target + _offset, _speed * Time.deltaTime);
-            // var offsetTarget = _transform.position + _target + _offset;
-            // _transform.Translate( offsetTarget * (_speed * Time.deltaTime));
+            
+            Target = currentHit.Value.point;
         }
     }
 }
