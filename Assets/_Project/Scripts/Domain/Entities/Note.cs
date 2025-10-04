@@ -2,11 +2,11 @@
 {
     public struct Note
     {
-        public int Index { get; }
+        public int NoteIndex { get; }
 
-        public Note(int index)
+        public Note(int noteIndex)
         {
-            Index = index;
+            NoteIndex = noteIndex;
         }
     }
 }
