@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Application.UseCases
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerMoveController : MonoBehaviour
     {
         [SerializeField] private Mover _mover;
         [SerializeField] private MouseTargetCalculator _targetCalculator;
