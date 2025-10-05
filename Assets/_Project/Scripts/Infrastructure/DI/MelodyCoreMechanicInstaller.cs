@@ -31,7 +31,8 @@ namespace _Project.Scripts.Infrastructure.DI
 
             Container
                 .BindInterfacesTo<MelodyWriter>()
-                .AsCached();
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

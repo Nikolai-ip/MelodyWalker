@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using _Project.Scripts.Domain.Entities;
 using _Project.Scripts.Domain.Repositories;
 using _Project.Scripts.Domain.Rules;
@@ -14,11 +16,13 @@ namespace _Project.Scripts.Domain.Services
             _melodyRepository = melodyRepository;
         }
 
-        public bool TryDefineMelodyByTacts(List<Tact> tacts, out Melody findedMelody)
-        {
-            //todo
-            findedMelody = default;
-            return false;
-        }
+        // public bool TryDefineMelodyByTacts(List<Tuple<float, Note>> notes, out Melody foundMelody)
+        // {
+        //     foreach (var note in notes)
+        //     {
+        //      
+        //     }
+        //     return false;
+        // }
     }
 }

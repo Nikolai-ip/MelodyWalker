@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using UniRx;
+using UnityEngine;
 
 namespace _Project.Scripts.Domain.Entities
 {
@@ -16,6 +17,7 @@ namespace _Project.Scripts.Domain.Entities
         {
             _currentNotes.Add(intervalAndNote);
             OnNoteAdded?.Invoke();
+            Debug.Log($"Write note {intervalAndNote.Item2.NoteIndex} with interval {intervalAndNote.Item1}");
         }
         
 

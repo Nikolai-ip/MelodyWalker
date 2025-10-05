@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using _Project.Scripts.Domain.Entities;
 
-namespace _Project.Scripts.Domain.Services
+namespace _Project.Scripts.Domain.Entities
 {
     public interface ISpellsCaster
     {
