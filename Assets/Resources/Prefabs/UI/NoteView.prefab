@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 7973023303535296949}
   - component: {fileID: 123290883052236429}
   - component: {fileID: 1537289747848480381}
+  - component: {fileID: 8813181451580606813}
+  - component: {fileID: 6067472908221145738}
   m_Layer: 5
-  m_Name: NotePlace
+  m_Name: NoteView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,6 +78,42 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8813181451580606813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570680537943327183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f872999e5ac468981a85a7ed635ac4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _noteSymbol: {fileID: 5330803701499399216}
+  _animation: {fileID: 6067472908221145738}
+--- !u!114 &6067472908221145738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570680537943327183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e6f6119f6b4474a07c26e7e620d79f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tr: {fileID: 7262219434290243943}
+  _animationParams:
+    <Delay>k__BackingField: 0
+    <Duration>k__BackingField: 0.3
+    <OriginScale>k__BackingField: {x: 0, y: 0, z: 0}
+    <Scale>k__BackingField: {x: 1, y: 1, z: 1}
+    <EaseFunc>k__BackingField:
+      <Func>k__BackingField: 27
+      <Amplitude>k__BackingField: 1.3
+      <Period>k__BackingField: 0.8
 --- !u!1 &4128613183722664120
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,8 +148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 8.9}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 0, y: 9.6}
+  m_SizeDelta: {x: 65, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6547350168291961562
 CanvasRenderer:
@@ -141,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: a
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -168,8 +206,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 65
+  m_fontSizeBase: 65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

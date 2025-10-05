@@ -10,6 +10,7 @@ namespace _Project.Scripts.Domain.Services
     {
         private Note _noteBuffer;
         private float _noteDuration;
+        public event Action<Note> OnNoteAdded;
         private CancellationTokenSource _timerCts;
         public bool IsEmpty => _noteBuffer == null;
         public void AddNoteIndexToBuffer(int noteIndex)
@@ -17,6 +18,7 @@ namespace _Project.Scripts.Domain.Services
             _noteBuffer = new Note(noteIndex);
             _noteDuration = 0;
             _timerCts = new();
+            OnNoteAdded?.Invoke(_noteBuffer);
             StartTimer();
         }
 

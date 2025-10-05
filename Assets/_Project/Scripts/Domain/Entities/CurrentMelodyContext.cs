@@ -12,6 +12,8 @@ namespace _Project.Scripts.Domain.Entities
         public ReactiveProperty<float> ErrorPercentage { get; } = new();
         public Melody Melody { get; set; }
         public int CountOfPerformedTacts { get; set; }
+        public event Action OnContextCleared;
+        
         public void AddNoteWithInterval(Tuple<float, Note> intervalAndNote)
         {
             _currentNotes.Add(intervalAndNote);
@@ -22,6 +24,7 @@ namespace _Project.Scripts.Domain.Entities
             _currentNotes.Clear();
             ErrorPercentage.Value = 0;
             Melody = null;
+            OnContextCleared?.Invoke();
         }
 
     }
