@@ -15,7 +15,12 @@ namespace _Project.Scripts.Application.UseCases.Common
         
         private IDisposable _subsDisposable;
 
-        private void OnEnable() => _subsDisposable = _health.CurrentHealth.Subscribe(_ => CheckDeath());
+        private void OnEnable()
+        {
+            _subsDisposable = _health.CurrentHealth
+                .Skip(1)
+                .Subscribe(_ => CheckDeath());
+        }
 
         private void OnDisable() => _subsDisposable.Dispose();
 
