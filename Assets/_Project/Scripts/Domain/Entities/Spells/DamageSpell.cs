@@ -5,7 +5,7 @@ namespace _Project.Scripts.Domain.Entities.Spells
 {
     public class DamageSpell : ISpell<IDamageable>
     {
-        public int DamageAmount { get; set; } = 1;
+        public int DamageAmount { get; set; } = 2;
 
         public void Apply(IDamageable target)
         {

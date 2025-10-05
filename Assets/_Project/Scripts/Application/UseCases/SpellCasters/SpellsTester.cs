@@ -27,7 +27,10 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
                     case NoteIndex.Note2:
                         _caster.Cast(new DamageSpell());
                         break;
-                    
+                 
+                    case NoteIndex.Note3:
+                        _caster.Cast(new ProtectSpell());
+                        break;
                 }
             };
         }
