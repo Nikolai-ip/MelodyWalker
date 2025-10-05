@@ -69,6 +69,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Note8",
+                    "type": "Button",
+                    "id": "eafb3579-a2a1-4afe-90c1-95c1cfb9f59b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "ApplyCast",
                     "type": "Button",
                     "id": "5dd983f5-f966-4ddc-b69d-7506cc8b37f7",
@@ -177,7 +186,7 @@
                 {
                     "name": "",
                     "id": "aa3f1172-0762-4124-ba6e-3f85bd1034c1",
-                    "path": "<Mouse>/middleButton",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -204,6 +213,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MouseScreenPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d866704-f80d-45ba-a97d-07c64641489e",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Note8",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

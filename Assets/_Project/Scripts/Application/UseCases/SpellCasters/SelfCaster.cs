@@ -9,8 +9,9 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
     {
         [SerializeField] private GameObject _player;
 
-        public override void Cast<TTarget>(ISpell<TTarget> spell)
+        public override void Cast<TTarget>(ISpell<TTarget> spell, float errorPercent)
         {
+            //todo: Error Percent
             if (!_player.TryGetComponent(out TTarget target))
                 throw new ArgumentException($"{_player.name} has not {typeof(TTarget).Name} component!");
             

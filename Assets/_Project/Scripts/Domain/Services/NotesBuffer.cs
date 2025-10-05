@@ -40,5 +40,13 @@ namespace _Project.Scripts.Domain.Services
             _timerCts = null;
             return new Tuple<float, Note>(_noteDuration, _noteBuffer);
         }
+
+        public void ClearBuffer()
+        {
+            _timerCts?.Cancel();
+            _timerCts = null;
+            _noteBuffer = null;
+            _noteDuration = 0;
+        }
     }
 }

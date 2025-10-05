@@ -41,9 +41,10 @@ namespace _Project.Scripts.Domain.Entities.HealthSystem
 
         public void Heal(int healAmount)
         {
+            TakeDamage(3);
             if (healAmount < 0)
                 throw new ArgumentException("Heal points cannot be negative");
-
+    
             _currentHealth.Value = Mathf.Clamp(CurrentHealth.Value + healAmount, 0, MaxHealth);
         }
     }

@@ -8,5 +8,13 @@
         {
             NoteIndex = noteIndex;
         }
+        public override int GetHashCode()
+        {
+            return NoteIndex.GetHashCode();
+        }
+        public override bool Equals(object obj)
+        {
+            return obj is Note other && NoteIndex == other.NoteIndex;
+        }
     }
 }

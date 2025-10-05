@@ -8,18 +8,16 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
 {
     public abstract class Caster : MonoBehaviour
     {
-        public abstract void Cast<TTarget>(ISpell<TTarget> spell);
+        public abstract void Cast<TTarget>(ISpell<TTarget> spell, float errorPercent);
     }
     
     public class BulletCaster : Caster
     {
         // [SerializeField] private BulletSpell _bulletPrefab;
-
-        public override void Cast<TTarget>(ISpell<TTarget> spell)
+        
+        public override void Cast<TTarget>(ISpell<TTarget> spell, float errorPercent)
         {
-            // BulletSpell bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
-            //
-            // bullet 
+            
         }
     }
 
