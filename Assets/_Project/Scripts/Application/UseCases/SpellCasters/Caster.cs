@@ -12,17 +12,17 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
     
     public class BulletCaster : Caster
     {
-        [SerializeField] private BulletSpell _bulletPrefab;
+        // [SerializeField] private BulletSpell _bulletPrefab;
 
         public override void Cast<TTarget>(ISpell<TTarget> spell)
         {
-            BulletSpell bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
-            
-            bullet
+            // BulletSpell bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
+            //
+            // bullet 
         }
     }
 
-    public class BulletSpell 
+    // public class BulletSpell 
     
     public class BulletSpell<TTarget> : MonoBehaviour
     {
