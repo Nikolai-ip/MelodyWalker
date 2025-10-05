@@ -13,6 +13,8 @@ namespace _Project.Scripts.Application.UseCases
 
         public void MoveTo(Vector3 target)
         {
+            // _transform.position += (target + _offset) * (_speed * Time.deltaTime);
+            // _transform.position = Vector3.MoveTowards(_transform.position, target + _offset, _speed * Time.deltaTime);
             _transform.position = Vector3.Lerp(_transform.position, target + _offset, _speed * Time.deltaTime);
             // var offsetTarget = _transform.position + _target + _offset;
             // _transform.Translate( offsetTarget * (_speed * Time.deltaTime));

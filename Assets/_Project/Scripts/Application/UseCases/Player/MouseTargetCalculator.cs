@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Domain.Entities;
+﻿using System;
+using _Project.Scripts.Domain.Entities;
 using _Project.Scripts.Infrastructure.Input;
 using UnityEngine;
 using Zenject;
@@ -12,10 +13,14 @@ namespace _Project.Scripts.Application.UseCases.Player
 
         private IInputService _inputService;
 
+        [SerializeField] private Transform _playerTransform;
+        
         public Vector3 Target { get; private set; }
         
         [Inject]
         private void Construct(IInputService inputService) => _inputService = inputService;
+
+        private void Awake() => Target = _playerTransform.position;
 
         private void Update() => CalculateTarget();
 
