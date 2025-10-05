@@ -1,7 +1,17 @@
-﻿namespace _Project.Scripts.Domain.Entities
+﻿using System;
+using UnityEngine;
+
+namespace _Project.Scripts.Domain.Entities
 {
-    public interface ISpell
+    public interface ISpellBase
     {
-        void Run();
+        
+    }
+    
+    public interface ISpell<in TTarget> : ISpellBase
+    {
+        void Apply(TTarget target);
+        void Cancel();
+        event Action<ISpell<TTarget>> OnCompleted;
     }
 }
