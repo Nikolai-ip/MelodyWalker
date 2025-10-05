@@ -1396,26 +1396,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _errorPercentagePhrasesData:
     _successStatusPhrasesInspector:
-    - <ErrorMaxPercentage>k__BackingField: 0
-      <ErrorMinPercentage>k__BackingField: 0.8
+    - <ErrorMinPercentage>k__BackingField: 0
+      <ErrorMaxPercentage>k__BackingField: 0.08
       <Phrase>k__BackingField: Perfect!
-    - <ErrorMaxPercentage>k__BackingField: 0.8
-      <ErrorMinPercentage>k__BackingField: 0.15
+    - <ErrorMinPercentage>k__BackingField: 0.08
+      <ErrorMaxPercentage>k__BackingField: 0.15
       <Phrase>k__BackingField: Great
-    - <ErrorMaxPercentage>k__BackingField: 0.15
-      <ErrorMinPercentage>k__BackingField: 0.23
+    - <ErrorMinPercentage>k__BackingField: 0.15
+      <ErrorMaxPercentage>k__BackingField: 0.23
       <Phrase>k__BackingField: Fine
-    - <ErrorMaxPercentage>k__BackingField: 0.23
-      <ErrorMinPercentage>k__BackingField: 0.3
+    - <ErrorMinPercentage>k__BackingField: 0.23
+      <ErrorMaxPercentage>k__BackingField: 0.3
       <Phrase>k__BackingField: Normal
-    - <ErrorMaxPercentage>k__BackingField: 0.3
-      <ErrorMinPercentage>k__BackingField: 0.5
+    - <ErrorMinPercentage>k__BackingField: 0.3
+      <ErrorMaxPercentage>k__BackingField: 0.5
       <Phrase>k__BackingField: Not good
-    - <ErrorMaxPercentage>k__BackingField: 0.5
-      <ErrorMinPercentage>k__BackingField: 0.7
+    - <ErrorMinPercentage>k__BackingField: 0.5
+      <ErrorMaxPercentage>k__BackingField: 0.7
       <Phrase>k__BackingField: Bad
-    - <ErrorMaxPercentage>k__BackingField: 0.7
-      <ErrorMinPercentage>k__BackingField: 1
+    - <ErrorMinPercentage>k__BackingField: 0.7
+      <ErrorMaxPercentage>k__BackingField: 1
       <Phrase>k__BackingField: Terrible!
   _showAnimation: {fileID: 530003384}
   _succesStatusText: {fileID: 2126137729}
