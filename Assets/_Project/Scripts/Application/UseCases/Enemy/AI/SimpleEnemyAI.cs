@@ -22,7 +22,7 @@ namespace _Project.Scripts.Application.UseCases.Enemy.AI
 
         private void Update()
         {
-            if (_targetTransform is not null)
+            if (_targetTransform != null)
                 UpdateTargetPos();
         }
 
