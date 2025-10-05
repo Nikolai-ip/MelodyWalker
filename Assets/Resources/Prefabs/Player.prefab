@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a463e59cea9a4060a87dbe0c0cf6c75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
+  _speed: 2
   _offset: {x: 0, y: 1, z: 0}
 --- !u!114 &2515092336041717427
 MonoBehaviour:
@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e401771e2ed04583bebb5d571c0da8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deadZoneRadius: 0
   _playerTransform: {fileID: 7771583659769141290}
 --- !u!114 &1681428751425380773
 MonoBehaviour:
