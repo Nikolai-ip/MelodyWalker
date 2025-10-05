@@ -23,7 +23,8 @@ namespace _Project.Scripts.Infrastructure.Input
             _inputScheme.Player.Note5.performed += ctx => NotePressed?.Invoke(NoteIndex.Note5);
             _inputScheme.Player.Note6.performed += ctx => NotePressed?.Invoke(NoteIndex.Note6);
             _inputScheme.Player.Note7.performed += ctx => NotePressed?.Invoke(NoteIndex.Note7);
-            
+            _inputScheme.Player.Note8.performed += ctx => NotePressed?.Invoke(NoteIndex.Note8);
+
             _inputScheme.Player.ApplyCast.performed += ctx => CastApplied?.Invoke();
             _inputScheme.Player.CancelCast.performed += ctx => CastCancelled?.Invoke();
 

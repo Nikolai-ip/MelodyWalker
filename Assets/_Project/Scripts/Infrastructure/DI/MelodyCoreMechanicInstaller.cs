@@ -45,6 +45,10 @@ namespace _Project.Scripts.Infrastructure.DI
             Container
                 .Bind<MelodyDefiner>()
                 .AsSingle();
+
+            Container
+                .Bind<TactsCounter>()
+                .AsSingle();
         }
     }
 }

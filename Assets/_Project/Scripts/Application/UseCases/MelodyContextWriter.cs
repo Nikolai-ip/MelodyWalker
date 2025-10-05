@@ -17,14 +17,16 @@ namespace _Project.Scripts.Application.UseCases
         private readonly NotesBuffer _notesBuffer;
         private readonly MelodyDefiner _melodyDefiner;
         private readonly MelodyPercentageErrorCalculator _melodyPercentageErrorCalculator;
+        private readonly TactsCounter _tactsCounter;
 
-        public MelodyContextWriter(IInputService inputService, CurrentMelodyContext currentMelodyContext, NotesBuffer notesBuffer, MelodyDefiner melodyDefiner, MelodyPercentageErrorCalculator melodyPercentageErrorCalculator)
+        public MelodyContextWriter(IInputService inputService, CurrentMelodyContext currentMelodyContext, NotesBuffer notesBuffer, MelodyDefiner melodyDefiner, MelodyPercentageErrorCalculator melodyPercentageErrorCalculator, TactsCounter tactsCounter)
         {
             _inputService = inputService;
             _currentMelodyContext = currentMelodyContext;
             _notesBuffer = notesBuffer;
             _melodyDefiner = melodyDefiner;
             _melodyPercentageErrorCalculator = melodyPercentageErrorCalculator;
+            _tactsCounter = tactsCounter;
         }
 
         public void Initialize()
@@ -40,14 +42,20 @@ namespace _Project.Scripts.Application.UseCases
              {
                  intervalAndNote = _notesBuffer.GetIntervalAndNoteFromBuffer();
                  _currentMelodyContext.AddNoteWithInterval(intervalAndNote);
+                 Debug.Log($"Write note {intervalAndNote.Item2.NoteIndex} with interval {intervalAndNote.Item1}");
+                 var currentMelody = _currentMelodyContext.CurrentNotes
+                     .Select(note => note.Item2).ToList();
+                 
                  if (_melodyDefiner
-                     .TryDefineMelodyByNoteList(_currentMelodyContext.CurrentNotes
-                         .Select(note=>note.Item2).ToList(), out var melody))
+                     .TryDefineMelodyByNoteList(currentMelody, out var melody))
                  {
                      _currentMelodyContext.Melody = melody;
                      _currentMelodyContext.ErrorPercentage.Value = _melodyPercentageErrorCalculator.CalcTactsErrorPercentage(melody.Tacts, _currentMelodyContext.CurrentNotes);
+                     _currentMelodyContext.CountOfPerformedTacts =
+                         _tactsCounter.DetectPerformedTacts(currentMelody, melody);
                      Debug.Log("Found melody " + DebugMelody(melody));
                      Debug.Log("Error percent is" + _currentMelodyContext.ErrorPercentage.Value);
+                     Debug.Log("Performed tacts " + _currentMelodyContext.CountOfPerformedTacts);
                  }
                  else
                  {
@@ -55,8 +63,6 @@ namespace _Project.Scripts.Application.UseCases
                  }
              }
              _notesBuffer.AddNoteIndexToBuffer((int)noteIndex);
-             Debug.Log("[Add note to buffer] " + (int)noteIndex);
-             
         }
 
         private string DebugMelody(Melody foundMelody)

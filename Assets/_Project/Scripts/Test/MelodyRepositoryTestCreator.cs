@@ -26,30 +26,30 @@ namespace _Project.Scripts.Test
                 new(new List<Tuple<float, Note>>
                 {
                     new(0.25f, new Note(1)),
-                    new(0.3f, new Note(3)),
-                    new(0.6f, new Note(2)),
-                    new(0.45f, new Note(1))
-                }),
-                new(new List<Tuple<float, Note>>
-                {
-                    new(0.35f, new Note(4)),
-                    new(0.2f, new Note(7)),
-                    new(0.5f, new Note(5)),
-                    new(0.3f, new Note(6))
-                }),
-                new(new List<Tuple<float, Note>>
-                {
-                    new(0.1f, new Note(2)),
-                    new(0.1f, new Note(2)),
-                    new(0.4f, new Note(3)),
-                    new(0.5f, new Note(1))
-                }),
-                new(new List<Tuple<float, Note>>
-                {
+                    new(0.3f, new Note(2)),
                     new(0.6f, new Note(3)),
-                    new(0.5f, new Note(5)),
-                    new(0.6f, new Note(2)),
-                    new(0.12f, new Note(3))
+                    new(0.45f, new Note(4))
+                }),
+                new(new List<Tuple<float, Note>>
+                {
+                    new(0.35f, new Note(5)),
+                    new(0.2f, new Note(6)),
+                    new(0.5f, new Note(7)),
+                    new(0.3f, new Note(8))
+                }),
+                new(new List<Tuple<float, Note>>
+                {
+                    new(0.25f, new Note(1)),
+                    new(0.3f, new Note(2)),
+                    new(0.6f, new Note(3)),
+                    new(0.45f, new Note(4))
+                }),
+                new(new List<Tuple<float, Note>>
+                {
+                    new(0.35f, new Note(5)),
+                    new(0.2f, new Note(6)),
+                    new(0.5f, new Note(7)),
+                    new(0.3f, new Note(8))
                 })
             };
 
