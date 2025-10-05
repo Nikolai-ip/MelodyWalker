@@ -209,9 +209,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 330585546}
-  - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
+  - component: {fileID: 330585545}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -261,7 +262,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -286,13 +287,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.035774596, y: -0.70620126, z: 0.035774596, w: 0.70620126}
-  m_LocalPosition: {x: 26.5, y: 7.6, z: 19.3}
+  m_LocalRotation: {x: 0.27059805, y: -0.6532815, z: 0.27059805, w: 0.6532815}
+  m_LocalPosition: {x: 14.6, y: 14.3, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 5.8, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: -90, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +338,22 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0fcf6f675f4c568790cc1dc16baaad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offset: {x: 0, y: 0, z: 0}
+  _speed: 2
+  _camera: {fileID: 330585546}
+  _target: {fileID: 482880505}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,7 +1130,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -1129,6 +1146,18 @@ PrefabInstance:
     - target: {fileID: 3229792731457851756, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403406763491459836, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403406763491459836, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403406763491459836, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7771583659769141290, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
       propertyPath: m_LocalPosition.x
