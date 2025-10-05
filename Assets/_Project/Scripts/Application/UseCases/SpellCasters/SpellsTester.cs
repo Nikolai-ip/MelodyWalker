@@ -22,6 +22,7 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
                 {
                     case NoteIndex.Note1:
                         _caster.Cast(new HealSpell());
+                        Debug.Log("HEAL SPELL!");
                         break;
                     
                     case NoteIndex.Note2:
