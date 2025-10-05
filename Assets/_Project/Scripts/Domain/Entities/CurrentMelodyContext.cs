@@ -10,13 +10,14 @@ namespace _Project.Scripts.Domain.Entities
     public class CurrentMelodyContext
     {
         private readonly List<Tuple<float, Note>> _currentNotes = new();
-        public event Action OnNoteAdded;
+
+        public List<Tuple<float, Note>> CurrentNotes => _currentNotes;
         public ReactiveProperty<float> ErrorPercentage { get; } = new();
+        public Melody Melody { get; set; }
 
         public void AddNoteWithInterval(Tuple<float, Note> intervalAndNote)
         {
             _currentNotes.Add(intervalAndNote);
-            OnNoteAdded?.Invoke();
             Debug.Log($"Write note {intervalAndNote.Item2.NoteIndex} with interval {intervalAndNote.Item1}");
         }
         

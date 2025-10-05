@@ -38,18 +38,13 @@ namespace _Project.Scripts.Infrastructure.DI
             Container.Bind<CurrentMelodyContext>().AsSingle();
 
             Container
-                .BindInterfacesTo<MelodyWriter>()
+                .BindInterfacesTo<MelodyContextWriter>()
                 .AsSingle()
                 .NonLazy();
             
             Container
                 .Bind<MelodyDefiner>()
                 .AsSingle();
-
-            Container
-                .BindInterfacesTo<TestMelodyDefiner>()
-                .AsCached()
-                .NonLazy();
         }
     }
 }

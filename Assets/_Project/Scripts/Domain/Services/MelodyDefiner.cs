@@ -14,7 +14,7 @@ namespace _Project.Scripts.Domain.Services
         {
             _melodyRepository = melodyRepository;
         }
-        public bool TryDefineMelodyByTacts(List<Note> currentMelody, out Melody foundMelody)
+        public bool TryDefineMelodyByNoteList(List<Note> currentMelody, out Melody foundMelody)
         {
             foundMelody = null;
             var currentIndexes = currentMelody.Select(n => n.NoteIndex).ToList();
