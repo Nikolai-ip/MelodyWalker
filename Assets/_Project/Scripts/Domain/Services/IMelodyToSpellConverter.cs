@@ -5,6 +5,6 @@ namespace _Project.Scripts.Domain.Services
 {
     public interface IMelodyToSpellConverter
     {
-        ISpell Convert(List<Tact> melody);
+        ISpell<TData> Convert<TData>(List<Tact> melody);
     }
 }
