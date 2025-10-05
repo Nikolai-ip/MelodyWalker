@@ -11,16 +11,16 @@ using Zenject;
 
 namespace _Project.Scripts.Infrastructure.DI
 {
-    public class MelodyCoreMechanicInstaller: SubInstaller
+    public class MelodySystemInstaller: SubInstaller
     {
         [SerializeField] private CalcMelodyErrorRule_SO _calcMelodyErrorRule;
+        [SerializeField] private MelodyRepository_SO _melodyRepository;
         public override void InstallBindings(DiContainer Container)
         {
-
             Container
                 .Bind<MelodyRepository>()
-                .FromInstance(MelodyRepositoryTestCreator.GetMelodyRepository())
-                .AsSingle();
+                .AsSingle()
+                .WithArguments(_melodyRepository.GetMelodies());
             
             Container
                 .Bind<CalcMelodyErrorsRule>()
