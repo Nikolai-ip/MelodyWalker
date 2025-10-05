@@ -155,6 +155,15 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Note8"",
+                    ""type"": ""Button"",
+                    ""id"": ""eafb3579-a2a1-4afe-90c1-95c1cfb9f59b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""ApplyCast"",
                     ""type"": ""Button"",
                     ""id"": ""5dd983f5-f966-4ddc-b69d-7506cc8b37f7"",
@@ -263,7 +272,7 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""aa3f1172-0762-4124-ba6e-3f85bd1034c1"",
-                    ""path"": ""<Mouse>/middleButton"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -292,6 +301,17 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
                     ""action"": ""MouseScreenPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d866704-f80d-45ba-a97d-07c64641489e"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Note8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -307,6 +327,7 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
         m_Player_Note5 = m_Player.FindAction("Note5", throwIfNotFound: true);
         m_Player_Note6 = m_Player.FindAction("Note6", throwIfNotFound: true);
         m_Player_Note7 = m_Player.FindAction("Note7", throwIfNotFound: true);
+        m_Player_Note8 = m_Player.FindAction("Note8", throwIfNotFound: true);
         m_Player_ApplyCast = m_Player.FindAction("ApplyCast", throwIfNotFound: true);
         m_Player_CancelCast = m_Player.FindAction("CancelCast", throwIfNotFound: true);
         m_Player_MouseScreenPosition = m_Player.FindAction("MouseScreenPosition", throwIfNotFound: true);
@@ -397,6 +418,7 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Note5;
     private readonly InputAction m_Player_Note6;
     private readonly InputAction m_Player_Note7;
+    private readonly InputAction m_Player_Note8;
     private readonly InputAction m_Player_ApplyCast;
     private readonly InputAction m_Player_CancelCast;
     private readonly InputAction m_Player_MouseScreenPosition;
@@ -439,6 +461,10 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Note7".
         /// </summary>
         public InputAction @Note7 => m_Wrapper.m_Player_Note7;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Note8".
+        /// </summary>
+        public InputAction @Note8 => m_Wrapper.m_Player_Note8;
         /// <summary>
         /// Provides access to the underlying input action "Player/ApplyCast".
         /// </summary>
@@ -498,6 +524,9 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
             @Note7.started += instance.OnNote7;
             @Note7.performed += instance.OnNote7;
             @Note7.canceled += instance.OnNote7;
+            @Note8.started += instance.OnNote8;
+            @Note8.performed += instance.OnNote8;
+            @Note8.canceled += instance.OnNote8;
             @ApplyCast.started += instance.OnApplyCast;
             @ApplyCast.performed += instance.OnApplyCast;
             @ApplyCast.canceled += instance.OnApplyCast;
@@ -539,6 +568,9 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
             @Note7.started -= instance.OnNote7;
             @Note7.performed -= instance.OnNote7;
             @Note7.canceled -= instance.OnNote7;
+            @Note8.started -= instance.OnNote8;
+            @Note8.performed -= instance.OnNote8;
+            @Note8.canceled -= instance.OnNote8;
             @ApplyCast.started -= instance.OnApplyCast;
             @ApplyCast.performed -= instance.OnApplyCast;
             @ApplyCast.canceled -= instance.OnApplyCast;
@@ -637,6 +669,13 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNote7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Note8" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNote8(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "ApplyCast" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

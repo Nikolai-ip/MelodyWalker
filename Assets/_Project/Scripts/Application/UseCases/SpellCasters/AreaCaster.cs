@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Domain.Entities;
+using _Project.Scripts.Domain.Entities.Spells;
 using UnityEngine;
 
 namespace _Project.Scripts.Application.UseCases.SpellCasters
@@ -11,8 +12,9 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
         
         private Collider[] _collidersBuffer = new Collider[10];
 
-        public override void Cast<TTarget>(ISpell<TTarget> spell) 
+        public override void Cast<TTarget>(ISpell<TTarget> spell, float errorPercent) 
         {
+            //todo: Error Percent
             int amountInArea = Physics.OverlapSphereNonAlloc(_playerTransform.position, _areaRadius, _collidersBuffer, _layerMask);
 
             for (int i = 0; i < amountInArea; i++)
