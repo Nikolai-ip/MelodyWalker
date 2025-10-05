@@ -1,5 +1,6 @@
 ﻿using System;
 using _Project.Scripts.Domain.Entities.HealthSystem;
+using UnityEngine;
 
 namespace _Project.Scripts.Domain.Entities.Spells
 {
@@ -7,11 +8,11 @@ namespace _Project.Scripts.Domain.Entities.Spells
     {
         public event Action<ISpell<IHealable>> OnCompleted;
 
-        public int HealAmount { get; set; } = 1;
+        public int HealAmount { get; set; } = 3;
 
-        public void Apply(IHealable target)
+        public void Apply(IHealable target, float errorPercent)
         {
-            target.Heal(HealAmount);
+            target.Heal(Mathf.CeilToInt(HealAmount * (1 - errorPercent)));
             OnCompleted?.Invoke(this);
         }
         public void Cancel() => OnCompleted?.Invoke(this);

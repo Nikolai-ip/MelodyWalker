@@ -20,18 +20,18 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
             {
                 switch (index)
                 {
-                    case NoteIndex.Note1:
-                        _caster.Cast(new HealSpell());
-                        Debug.Log("HEAL SPELL!");
-                        break;
-                    
-                    case NoteIndex.Note2:
-                        _caster.Cast(new DamageSpell());
-                        break;
-                 
-                    case NoteIndex.Note3:
-                        _caster.Cast(new ProtectSpell());
-                        break;
+                    // case NoteIndex.Note1:
+                    //     _caster.Cast(new HealSpell());
+                    //     Debug.Log("HEAL SPELL!");
+                    //     break;
+                    //
+                    // case NoteIndex.Note2:
+                    //     _caster.Cast(new DamageSpell());
+                    //     break;
+                    //
+                    // case NoteIndex.Note3:
+                    //     _caster.Cast(new ProtectSpell());
+                    //     break;
                 }
             };
         }
