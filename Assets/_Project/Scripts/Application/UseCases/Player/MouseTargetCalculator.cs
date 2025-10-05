@@ -13,8 +13,10 @@ namespace _Project.Scripts.Application.UseCases.Player
 
         private IInputService _inputService;
 
+        [SerializeField] private float _deadZoneRadius;
+
         [SerializeField] private Transform _playerTransform;
-        
+
         public Vector3 Target { get; private set; }
         
         [Inject]
@@ -50,6 +52,9 @@ namespace _Project.Scripts.Application.UseCases.Player
             }
 
             if (!currentHit.HasValue)
+                return;
+
+            if (Vector3.Distance(_playerTransform.position, currentHit.Value.point) < _deadZoneRadius)
                 return;
             
             Target = currentHit.Value.point;

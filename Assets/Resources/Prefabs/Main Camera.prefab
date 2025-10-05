@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0fcf6f675f4c568790cc1dc16baaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offset: {x: 0, y: 15, z: 0}
+  _offset: {x: 15, y: 15, z: 0}
   _speed: 2
   _camera: {fileID: 1607905871506367142}
   _target: {fileID: 0}
