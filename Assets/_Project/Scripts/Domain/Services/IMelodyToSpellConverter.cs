@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using _Project.Scripts.Domain.Entities;
+using _Project.Scripts.Domain.Entities.Spells;
 
 namespace _Project.Scripts.Domain.Services
 {

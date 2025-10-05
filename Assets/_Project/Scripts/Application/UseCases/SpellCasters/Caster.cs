@@ -1,5 +1,6 @@
 ﻿using System;
 using _Project.Scripts.Domain.Entities;
+using _Project.Scripts.Domain.Entities.Spells;
 using UnityEngine;
 using UnityEngine.Serialization;
 
