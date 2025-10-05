@@ -25,7 +25,7 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
                     continue;
                 }
                 
-                spell.Apply(target);
+                spell.Apply(target, errorPercent);
             }
         }
 

@@ -15,7 +15,7 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
             if (!_player.TryGetComponent(out TTarget target))
                 throw new ArgumentException($"{_player.name} has not {typeof(TTarget).Name} component!");
             
-            spell.Apply(target);
+            spell.Apply(target, errorPercent);
         }
     }
 }

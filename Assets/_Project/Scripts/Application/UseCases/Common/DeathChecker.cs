@@ -15,9 +15,14 @@ namespace _Project.Scripts.Application.UseCases.Common
         
         private IDisposable _subsDisposable;
 
-        private void OnEnable() => _subsDisposable = _health.CurrentHealth.Subscribe(_ => CheckDeath());
-
-        private void OnDisable() => _subsDisposable.Dispose();
+        private void OnEnable()
+        {
+            _subsDisposable = _health.CurrentHealth
+                .TakeUntilDisable(this)
+                .Skip(1)
+                .Subscribe(_ => CheckDeath())
+                .AddTo(this);
+        }
 
         private void CheckDeath()
         {
@@ -25,6 +30,7 @@ namespace _Project.Scripts.Application.UseCases.Common
                 return;
             
             _isDead.Value = true;
+            Debug.Log($"{gameObject.name} is dead!");
         }
     }
 }

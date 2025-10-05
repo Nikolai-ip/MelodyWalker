@@ -72,8 +72,11 @@ namespace _Project.Scripts.Domain.Entities.HealthSystem
 
     public class ProtectionModifier : Modifier<int>
     {
-        private float _increaseFactor = 0.5f;
+        public const float StaticIncreaseFactor = 0.5f; 
+        public float IncreaseFactor = 0.5f;
 
-        public override int Modify(int value) => Mathf.CeilToInt(value * _increaseFactor);
+        public void Reset() => IncreaseFactor = StaticIncreaseFactor;
+        
+        public override int Modify(int value) => Mathf.CeilToInt(value * IncreaseFactor);
     }
 }

@@ -4,9 +4,8 @@ namespace _Project.Scripts.Domain.Entities.DeathHandlers
 {
     public class EnemyDeathHandler : DeathHandler
     {
-        public override void Die()
-        {
-            Debug.LogWarning("ENEMY DIED!");
-        }
+        [SerializeField] private GameObject _enemy;
+
+        public override void Die() => Destroy(_enemy);
     }
 }

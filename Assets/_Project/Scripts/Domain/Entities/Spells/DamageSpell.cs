@@ -1,5 +1,6 @@
 ﻿using System;
 using _Project.Scripts.Domain.Entities.HealthSystem;
+using UnityEngine;
 
 namespace _Project.Scripts.Domain.Entities.Spells
 {
@@ -7,9 +8,10 @@ namespace _Project.Scripts.Domain.Entities.Spells
     {
         public int DamageAmount { get; set; } = 2;
 
-        public void Apply(IDamageable target)
+        public void Apply(IDamageable target, float errorPercent)
         {
-            target.TakeDamage(DamageAmount);
+            int damage = Mathf.CeilToInt(DamageAmount * (1 - errorPercent));
+            target.TakeDamage(damage);
             OnCompleted?.Invoke(this);
         }
 

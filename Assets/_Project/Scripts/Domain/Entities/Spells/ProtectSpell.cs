@@ -10,15 +10,17 @@ namespace _Project.Scripts.Domain.Entities.Spells
         private IDisposable _timerSubs;
         private IDamageable _target;
         
-        private Modifier<int> _protectionModifier = new ProtectionModifier();
+        private ProtectionModifier _protectionModifier = new ProtectionModifier();
         
         public float ProtectionTime { get; set; } = 5;
 
         public event Action<ISpell<IDamageable>> OnCompleted;
 
-        public void Apply(IDamageable target)
+        public void Apply(IDamageable target, float errorPercent)
         {
             _target = target;
+            
+            _protectionModifier.IncreaseFactor *= (1 - errorPercent);
             
             _target.AddModifier(_protectionModifier);
             
@@ -39,6 +41,8 @@ namespace _Project.Scripts.Domain.Entities.Spells
 
             _target.RemoveModifier(_protectionModifier);
             _target = null;
+            
+            _protectionModifier.Reset();
             
             // #TODO Remove
             Debug.Log("Protect spell stopped!");
