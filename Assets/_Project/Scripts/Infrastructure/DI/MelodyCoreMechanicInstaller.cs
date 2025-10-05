@@ -1,9 +1,11 @@
 ﻿using _Game.Scripts.Core.DI;
 using _Project.Scripts.Application.UseCases;
 using _Project.Scripts.Domain.Entities;
+using _Project.Scripts.Domain.Repositories;
 using _Project.Scripts.Domain.Rules;
 using _Project.Scripts.Domain.Services;
 using _Project.Scripts.Infrastructure.Configs;
+using _Project.Scripts.Test;
 using UnityEngine;
 using Zenject;
 
@@ -14,6 +16,12 @@ namespace _Project.Scripts.Infrastructure.DI
         [SerializeField] private CalcMelodyErrorRule_SO _calcMelodyErrorRule;
         public override void InstallBindings(DiContainer Container)
         {
+
+            Container
+                .Bind<MelodyRepository>()
+                .FromInstance(MelodyRepositoryTestCreator.GetMelodyRepository())
+                .AsSingle();
+            
             Container
                 .Bind<CalcMelodyErrorsRule>()
                 .FromInstance(_calcMelodyErrorRule.GetInstance())
@@ -32,6 +40,15 @@ namespace _Project.Scripts.Infrastructure.DI
             Container
                 .BindInterfacesTo<MelodyWriter>()
                 .AsSingle()
+                .NonLazy();
+            
+            Container
+                .Bind<MelodyDefiner>()
+                .AsSingle();
+
+            Container
+                .BindInterfacesTo<TestMelodyDefiner>()
+                .AsCached()
                 .NonLazy();
         }
     }

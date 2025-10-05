@@ -19,7 +19,7 @@ namespace _Project.Scripts.Domain.Services
         {
             float errorPercentage = 0f;
             float errorAccum = 0f;
-            List<Note> targetNoteSequence = GetTargetNoteSequence(targetTacts);
+            List<Note> targetNoteSequence = MelodyConverterUtility.ConvertTactsToNoteList(targetTacts);
             
             for (var i = 0; i < notes.Count; i++)
             {
@@ -65,16 +65,6 @@ namespace _Project.Scripts.Domain.Services
             }
             return false;
         }
-
-        private List<Note> GetTargetNoteSequence(List<Tact> targetTacts)
-        {
-            var targetNoteSequence = new List<Note>();
-            foreach (var tact in targetTacts)
-            {
-                foreach (var noteInterval in tact.ReferenceNoteIntervals)
-                    targetNoteSequence.Add(noteInterval.Item2);
-            }
-            return targetNoteSequence;
-        }
+        
     }
 }
