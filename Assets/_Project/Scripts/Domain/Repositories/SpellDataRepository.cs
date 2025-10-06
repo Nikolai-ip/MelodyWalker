@@ -19,7 +19,7 @@ namespace _Project.Scripts.Domain.Repositories
         private readonly ProtectSpell _protectSpell = new();
         private readonly DashSpell _dashSpell = new();
         private readonly SlowerSpell _slowerSpell = new();
-        private readonly DashSpell _invisibleSpell = new();
+        private readonly InvisibleSpell _invisibleSpell = new();
         
         private readonly Dictionary<MelodyType,Melody> _melodies;
 
@@ -108,7 +108,7 @@ namespace _Project.Scripts.Domain.Repositories
                         (errorPercent) =>
                         {
                             selfCaster.Cast<Health>(_invisibleSpell, errorPercent);
-                            Debug.Log("INVISBLE");
+                            Debug.Log("INVISIBLE");
                         },                        
                         (errorPercent) =>
                         {

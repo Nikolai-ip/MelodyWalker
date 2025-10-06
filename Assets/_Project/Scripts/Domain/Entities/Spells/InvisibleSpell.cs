@@ -1,7 +1,9 @@
 ﻿using System;
-using _Project.Scripts.Application.UseCases;
+using _Project.Scripts.Application.UseCases.Enemy;
+using _Project.Scripts.Application.UseCases.Enemy.AI;
 using UniRx;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace _Project.Scripts.Domain.Entities.Spells
 {
@@ -13,26 +15,35 @@ namespace _Project.Scripts.Domain.Entities.Spells
 
         private float _prevSpeed;
         private InvisibleSpellData _target;
-        private float _invisibleTime = 0.05f;
+        private float _invisibleTime = 3f;
         private IDisposable _timerSubs;
+        
+        private readonly BaseEnemyAI[] _allEnemies;
+        private SpriteRenderer _spriteRenderer;
+        private Collider _playerCollider;
+
+        public InvisibleSpell()
+        {
+            _allEnemies = Object.FindObjectsOfType<BaseEnemyAI>();
+        }
 
         public void Apply(GameObject target, float errorPercent)
         {
-            // _target = target;
-            //
-            // var newColor = target.SpriteRenderer.color;
-            // newColor.a = Alpha;
-            //
-            // target.SpriteRenderer.color = newColor;
-            // target.
-            
-            // _target.Speed = Speed;
-            
-            // _targetData
-            
-                _timerSubs = Observable
-                    .Timer(TimeSpan.FromSeconds(_invisibleTime))
-                    .Subscribe(_ => OnStop());
+            _spriteRenderer = target.GetComponent<SpriteRenderer>();
+            _playerCollider = target.GetComponentInChildren<PlayerTag>().GetComponent<Collider>();
+
+            var newColor = _spriteRenderer.color;
+            newColor.a = Alpha;
+            _spriteRenderer.color = newColor;
+
+            _playerCollider.enabled = false;
+
+            foreach (var baseEnemyAI in _allEnemies) 
+                baseEnemyAI.CleanUp();
+
+            _timerSubs = Observable
+                .Timer(TimeSpan.FromSeconds(_invisibleTime))
+                .Subscribe(_ => OnStop());
         }
 
         private void OnStop() => CleanUp();
@@ -42,8 +53,11 @@ namespace _Project.Scripts.Domain.Entities.Spells
             _timerSubs.Dispose();
             _timerSubs = null;
                 
-            // _target.Speed = _prevSpeed;
-            _target = null;
+            var newColor = _spriteRenderer.color;
+            newColor.a = 1f;
+            _spriteRenderer.color = newColor;
+
+            _playerCollider.enabled = true;
             
             OnCompleted?.Invoke(this);
         }
