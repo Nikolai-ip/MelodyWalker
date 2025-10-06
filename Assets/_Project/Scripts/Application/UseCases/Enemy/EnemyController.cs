@@ -9,8 +9,6 @@ namespace _Project.Scripts.Application.UseCases.Enemy
         [SerializeField] private BaseEnemyAI _enemyAI;
         [SerializeField] private Mover _mover;
 
-        
-        
-        private void Update() => _mover.MoveTo(_enemyAI.TargetPosition);
+        private void FixedUpdate() => _mover.MoveTo(_enemyAI.TargetPosition);
     }
 }

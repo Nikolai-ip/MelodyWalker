@@ -6,18 +6,35 @@ namespace _Project.Scripts.Application.UseCases
     {
         private Transform _transform;
         
-        [SerializeField] private float _speed;
-        [SerializeField] private Vector3 _offset;
+        [SerializeField] private float _speed = 5f;
+        [SerializeField] private float _acceleration = 10f;
+        [SerializeField] private float _deceleration = 15f;
+        [SerializeField] private float _decelerationThreshold = 0.1f;
+        [SerializeField] private float _velPower = 1.5f;
         
-        private void Awake() => _transform = transform;
+        [SerializeField] private Rigidbody _rb;
 
+        private void Awake() => _transform = transform;
+        
         public void MoveTo(Vector3 target)
         {
-            // _transform.position += (target + _offset) * (_speed * Time.deltaTime);
-            // _transform.position = Vector3.MoveTowards(_transform.position, target + _offset, _speed * Time.deltaTime);
-            _transform.position = Vector3.Lerp(_transform.position, target + _offset, _speed * Time.deltaTime);
-            // var offsetTarget = _transform.position + _target + _offset;
-            // _transform.Translate( offsetTarget * (_speed * Time.deltaTime));
+            Vector3 targetVelocity = (target - _transform.position).normalized * _speed;
+            Vector3 velocityDelta = targetVelocity - _rb.linearVelocity;
+
+            float accelRate = (velocityDelta.magnitude > _decelerationThreshold) ? _acceleration : _deceleration;
+
+            Vector3 poweredDiff = new(
+                Mathf.Pow(Mathf.Abs(velocityDelta.x), _velPower) * Mathf.Sign(velocityDelta.x),
+                Mathf.Pow(Mathf.Abs(velocityDelta.y), _velPower) * Mathf.Sign(velocityDelta.y),
+                Mathf.Pow(Mathf.Abs(velocityDelta.z), _velPower) * Mathf.Sign(velocityDelta.z)
+            );
+
+            Vector3 force = poweredDiff * (accelRate * Time.fixedDeltaTime);
+
+            _rb.AddForce(force, ForceMode.VelocityChange);
+            
+            if (_rb.linearVelocity.magnitude > _speed)
+                _rb.linearVelocity = _rb.linearVelocity.normalized * _speed;
         }
     }
 }
