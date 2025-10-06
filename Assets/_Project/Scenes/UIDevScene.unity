@@ -6442,6 +6442,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7183183152424581333, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
+      propertyPath: _dashEffect
+      value: 
+      objectReference: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
+    - target: {fileID: 7183183152424581333, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
+      propertyPath: _healEffect
+      value: 
+      objectReference: {fileID: 1956197547661106, guid: f293a2dcc753a4a489fefe7f8f312d69, type: 3}
+    - target: {fileID: 7699663250457456560, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
+      propertyPath: _damageEffect
+      value: 
+      objectReference: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
     - target: {fileID: 7771583659769141290, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
