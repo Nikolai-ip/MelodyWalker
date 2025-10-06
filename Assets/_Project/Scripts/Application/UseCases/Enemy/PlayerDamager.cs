@@ -12,16 +12,25 @@ namespace _Project.Scripts.Application.UseCases.Enemy
 
         private void OnCollisionEnter(Collision other)
         {
-            if (!other.gameObject.TryGetComponent(out PlayerTag player))
+            if (_coroutine != null)
+                return;
+            
+            if (!other.gameObject.TryGetComponent(out PlayerMoveController player))
                 return;
 
-            _coroutine = StartCoroutine(StartDamaging(player.GetComponent<IDamageable>()));
+            _coroutine = StartCoroutine(StartDamaging(player.GetComponentInChildren<IDamageable>()));
         }
 
         private void OnCollisionExit(Collision other)
         {
-            if (_coroutine != null)
-                StopCoroutine(_coroutine);
+            if (_coroutine == null)
+                return;
+            
+            if (!other.gameObject.TryGetComponent(out PlayerMoveController player))
+                return;
+            
+            StopCoroutine(_coroutine);
+            _coroutine = null;
         }
 
         private IEnumerator StartDamaging(IDamageable damageable)
