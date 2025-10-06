@@ -15,6 +15,8 @@ namespace _Project.Scripts.Domain.Repositories
         private readonly DamageSpell _damageSpell = new();
         private readonly ProtectSpell _protectSpell = new();
         private readonly DashSpell _dashSpell = new();
+        private readonly DashSpell _invisibleSpell = new();
+        
         
         private readonly Dictionary<MelodyType,Melody> _melodies;
 
@@ -89,11 +91,6 @@ namespace _Project.Scripts.Domain.Repositories
                     {
                         (errorPercent) =>
                         {
-                            selfCaster.Cast(_protectSpell, errorPercent);
-                            Debug.Log("PROTECT");
-                        },
-                        (errorPercent) =>
-                        {
                             selfCaster.Cast(_dashSpell, errorPercent);
                             Debug.Log("DASH");
                         },
@@ -101,7 +98,13 @@ namespace _Project.Scripts.Domain.Repositories
                         {
                             selfCaster.Cast(_protectSpell, errorPercent);
                             Debug.Log("PROTECT");
-                        },                        (errorPercent) =>
+                        },
+                        (errorPercent) =>
+                        {
+                            selfCaster.Cast(_invisibleSpell, errorPercent);
+                            Debug.Log("INVISBLE");
+                        },                        
+                        (errorPercent) =>
                         {
                             selfCaster.Cast(_protectSpell, errorPercent);
                             Debug.Log("PROTECT");
