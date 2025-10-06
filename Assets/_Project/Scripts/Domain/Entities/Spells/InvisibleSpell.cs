@@ -22,10 +22,7 @@ namespace _Project.Scripts.Domain.Entities.Spells
         private SpriteRenderer _spriteRenderer;
         private Collider _playerCollider;
 
-        public InvisibleSpell()
-        {
-            _allEnemies = Object.FindObjectsOfType<BaseEnemyAI>();
-        }
+        public InvisibleSpell() => _allEnemies = Object.FindObjectsOfType<BaseEnemyAI>();
 
         public void Apply(GameObject target, float errorPercent)
         {

@@ -6,11 +6,13 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
 {
     public class AreaCaster : Caster
     {
+        private Collider[] _collidersBuffer = new Collider[10];
+
         [SerializeField] private float _areaRadius;
         [SerializeField] private Transform _playerTransform;
         [SerializeField] private LayerMask _layerMask;
         
-        private Collider[] _collidersBuffer = new Collider[10];
+        [SerializeField] private GameObject _damageEffect;
 
         public override void Cast<TTarget>(ISpell spell, float errorPercent) 
         {
@@ -26,6 +28,11 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
                 }
                 
                 spell.Apply(target.gameObject, errorPercent);
+            }
+
+            if (spell is DamageSpell)
+            {
+                Instantiate(_damageEffect, _playerTransform.position, _playerTransform.rotation);
             }
         }
 
