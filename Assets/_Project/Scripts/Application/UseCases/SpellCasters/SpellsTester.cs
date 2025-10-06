@@ -16,24 +16,24 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
 
         private void Start()
         {
-            _inputService.NotePressed += index =>
-            {
-                switch (index)
-                {
-                    // case NoteIndex.Note1:
-                    //     _caster.Cast(new HealSpell());
-                    //     Debug.Log("HEAL SPELL!");
-                    //     break;
-                    //
-                    // case NoteIndex.Note2:
-                    //     _caster.Cast(new DamageSpell());
-                    //     break;
-                    //
-                    // case NoteIndex.Note3:
-                    //     _caster.Cast(new ProtectSpell());
-                    //     break;
-                }
-            };
+            // _inputService.NotePressed += index =>
+            // {
+            //     switch (index)
+            //     {
+            //         // case NoteIndex.Note1:
+            //         //     _caster.Cast(new HealSpell());
+            //         //     Debug.Log("HEAL SPELL!");
+            //         //     break;
+            //         //
+            //         // case NoteIndex.Note2:
+            //         //     _caster.Cast(new DamageSpell());
+            //         //     break;
+            //         //
+            //         // case NoteIndex.Note3:
+            //         //     _caster.Cast(new ProtectSpell());
+            //         //     break;
+            //     }
+            // };
         }
     }
 }
