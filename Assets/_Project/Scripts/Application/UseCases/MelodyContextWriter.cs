@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using _Project.Scripts.Domain.Entities;
@@ -52,8 +53,12 @@ namespace _Project.Scripts.Application.UseCases
                  {
                      _currentMelodyContext.Melody = melody;
                      _currentMelodyContext.ErrorPercentage.Value = _melodyPercentageErrorCalculator.CalcTactsErrorPercentage(melody.Tacts, _currentMelodyContext.CurrentNotes);
+
+                     var test = new List<Note>();
+                     test.AddRange(currentMelody);
+                     test.Add(new Note((int)noteIndex));  
                      _currentMelodyContext.CountOfPerformedTacts =
-                         _tactsCounter.DetectPerformedTacts(currentMelody, melody);
+                         _tactsCounter.DetectPerformedTacts(test, melody);
                      Debug.Log("Found melody " + DebugMelody(melody));
                      Debug.Log("Error percent is" + _currentMelodyContext.ErrorPercentage.Value);
                      Debug.Log("Performed tacts " + _currentMelodyContext.CountOfPerformedTacts);

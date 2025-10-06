@@ -17,24 +17,24 @@ namespace _Project.Scripts.Application.UseCases.Common
         public SpellCheating(SpellDataRepository spellRepository)
         {
             _spellRepository = spellRepository;
-            _keys = _spellRepository.Spells.Keys.ToList();
+            _keys = _spellRepository.Spells.Keys.Select(keys=>keys.Item1).ToList();
         }
 
         public void Tick()
         {
-# if UNITY_EDITOR
-
-            for (int i = (int)KeyCode.F1; i <= (int)KeyCode.F12; i++)
-            {
-                if (Input.GetKeyDown((KeyCode)i))
-                {
-                    int index = i - (int)KeyCode.F1;
-                    _spellRepository.Spells[_keys[index / 4]][index % 4](0f);    
-                    Debug.Log(index);                    
-                }
-            }
-            
-# endif
+// # if UNITY_EDITOR
+//
+//             for (int i = (int)KeyCode.F1; i <= (int)KeyCode.F12; i++)
+//             {
+//                 if (Input.GetKeyDown((KeyCode)i))
+//                 {
+//                     int index = i - (int)KeyCode.F1;
+//                     _spellRepository.Spells[_keys[index / 4]][index % 4](0f);    
+//                     Debug.Log(index);                    
+//                 }
+//             }
+//             
+// # endif
         }
     }
 }
