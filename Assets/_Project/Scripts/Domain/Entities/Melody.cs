@@ -2,6 +2,13 @@
 
 namespace _Project.Scripts.Domain.Entities
 {
+    public enum MelodyType
+    {
+        Damage,
+        Heal, 
+        Protect
+    }
+    
     public class Melody
     {
         public List<Tact> Tacts { get; }

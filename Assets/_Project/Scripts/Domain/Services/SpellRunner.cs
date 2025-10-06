@@ -33,7 +33,8 @@ namespace _Project.Scripts.Domain.Services
 
         private void RunCurrentSpell()
         {
-            if ( _currentMelodyContext.ErrorPercentage.Value < _calcMelodyErrorsRule.AllowedErrorPercentage && _spellDataRepository.Spells.TryGetValue(_currentMelodyContext.Melody, out var abilities))
+            if (_currentMelodyContext.ErrorPercentage.Value < _calcMelodyErrorsRule.AllowedErrorPercentage 
+                 && _spellDataRepository.Spells.TryGetValue(_currentMelodyContext.Melody, out var abilities))
             {
                 abilities[_currentMelodyContext.CountOfPerformedTacts].Invoke(_currentMelodyContext.ErrorPercentage.Value);
             }
