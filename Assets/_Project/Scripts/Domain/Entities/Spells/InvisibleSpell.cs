@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace _Project.Scripts.Domain.Entities.Spells
 {
-    public class InvisibleSpell : ISpell<InvisibleSpellData>
+    public class InvisibleSpell : ISpell
     {
-        public event Action<ISpell<InvisibleSpellData>> OnCompleted;
+        public event Action<ISpell> OnCompleted;
 
         public float Alpha = 0.3f;
 
@@ -16,14 +16,14 @@ namespace _Project.Scripts.Domain.Entities.Spells
         private float _invisibleTime = 0.05f;
         private IDisposable _timerSubs;
 
-        public void Apply(InvisibleSpellData target, float errorPercent)
+        public void Apply(GameObject target, float errorPercent)
         {
-            _target = target;
-
-            var newColor = target.SpriteRenderer.color;
-            newColor.a = Alpha;
-            
-            target.SpriteRenderer.color = newColor;
+            // _target = target;
+            //
+            // var newColor = target.SpriteRenderer.color;
+            // newColor.a = Alpha;
+            //
+            // target.SpriteRenderer.color = newColor;
             // target.
             
             // _target.Speed = Speed;

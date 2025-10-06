@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Project.Scripts.Application.UseCases.Enemy;
 using _Project.Scripts.Application.UseCases.SpellCasters;
 using _Project.Scripts.Domain.Entities;
+using _Project.Scripts.Domain.Entities.HealthSystem;
 using _Project.Scripts.Domain.Entities.Spells;
 using UnityEngine;
 
@@ -39,22 +41,22 @@ namespace _Project.Scripts.Domain.Repositories
                     {
                         (errorPercent) =>
                         {
-                            areaCaster.Cast(_damageSpell, errorPercent);
+                            areaCaster.Cast<EnemyController>(_damageSpell, errorPercent);
                             Debug.Log("DAMAGE");
                         },
                         (errorPercent) =>
                         {
-                            areaCaster.Cast(_damageSpell, errorPercent);
+                            areaCaster.Cast<EnemyController>(_damageSpell, errorPercent);
                             Debug.Log("DAMAGE");
                         },
                         (errorPercent) =>
                         {
-                            areaCaster.Cast(_damageSpell, errorPercent);
+                            areaCaster.Cast<EnemyController>(_damageSpell, errorPercent);
                             Debug.Log("DAMAGE");
                         },
                         (errorPercent) =>
                         {
-                            areaCaster.Cast(_damageSpell, errorPercent);
+                            areaCaster.Cast<EnemyController>(_damageSpell, errorPercent);
                             Debug.Log("DAMAGE");
                         },
                     }
@@ -65,22 +67,22 @@ namespace _Project.Scripts.Domain.Repositories
                     {
                         (errorPercent) =>
                         {
-                            selfCaster.Cast(_healSpell, errorPercent);
+                            selfCaster.Cast<Health>(_healSpell, errorPercent);
                             Debug.Log("HEAL");
                         },
                         (errorPercent) =>
                         {
-                            selfCaster.Cast(_healSpell, errorPercent);
+                            selfCaster.Cast<Health>(_healSpell, errorPercent);
                             Debug.Log("HEAL");
                         },
                         (errorPercent) =>
                         {
-                            selfCaster.Cast(_healSpell, errorPercent);
+                            selfCaster.Cast<Health>(_healSpell, errorPercent);
                             Debug.Log("HEAL");
                         },
                         (errorPercent) =>
                         {
-                            selfCaster.Cast(_healSpell, errorPercent);
+                            selfCaster.Cast<Health>(_healSpell, errorPercent);
                             Debug.Log("HEAL");
                         },
                     }
@@ -91,22 +93,22 @@ namespace _Project.Scripts.Domain.Repositories
                     {
                         (errorPercent) =>
                         {
-                            selfCaster.Cast(_dashSpell, errorPercent);
+                            selfCaster.Cast<Health>(_dashSpell, errorPercent);
                             Debug.Log("DASH");
                         },
                         (errorPercent) =>
                         {
-                            selfCaster.Cast(_protectSpell, errorPercent);
+                            selfCaster.Cast<Health>(_protectSpell, errorPercent);
                             Debug.Log("PROTECT");
                         },
                         (errorPercent) =>
                         {
-                            selfCaster.Cast(_invisibleSpell, errorPercent);
+                            selfCaster.Cast<Health>(_invisibleSpell, errorPercent);
                             Debug.Log("INVISBLE");
                         },                        
                         (errorPercent) =>
                         {
-                            selfCaster.Cast(_protectSpell, errorPercent);
+                            selfCaster.Cast<Health>(_protectSpell, errorPercent);
                             Debug.Log("PROTECT");
                         },
                     }

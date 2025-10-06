@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Domain.Entities.Spells
 {
-    public class HealSpell : ISpell
+    public class HealthDrainSpell : ISpell
     {
         private IDisposable _timerSubs;
         private float _healTime = 5f;
@@ -17,8 +17,8 @@ namespace _Project.Scripts.Domain.Entities.Spells
 
         public void Apply(GameObject target, float errorPercent)
         {
-            if (!target.TryGetComponent(out IHealable _target))
-                throw new ArgumentException("No Healable component found");
+            // if (target.TryGetComponent(out var _target))
+            
             
             OnCompleted?.Invoke(this);
 
