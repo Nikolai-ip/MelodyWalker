@@ -8,7 +8,6 @@ namespace _Game.Scripts.Services.Audio
     {
         private readonly AudioSource[] _buffer;
         private readonly AudioCueEventChanel_SO _audioCue;
-        private bool _enabled;
 
         public SoundsService(AudioSource[] buffer, AudioCueEventChanel_SO audioCue)
         {
@@ -18,7 +17,6 @@ namespace _Game.Scripts.Services.Audio
         
         private void SwitchSound(AudioEventArgs eventArgs)
         {
-            if (!_enabled) return;
             var audioSource = GetFreeAudioSource();
             audioSource.Stop();
             audioSource.clip = eventArgs.AudioClip;

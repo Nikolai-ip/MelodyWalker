@@ -38,6 +38,7 @@ namespace _Project.Scripts.Application.UseCases
         private void WriteNote(NoteIndex noteIndex)
         {
              Tuple<float, Note> intervalAndNote;
+             if (!_currentMelodyContext.HaveASpace) return;
              if (!_notesBuffer.IsEmpty)
              {
                  intervalAndNote = _notesBuffer.GetIntervalAndNoteFromBuffer();

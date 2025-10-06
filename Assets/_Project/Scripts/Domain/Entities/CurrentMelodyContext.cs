@@ -14,6 +14,8 @@ namespace _Project.Scripts.Domain.Entities
         public Melody Melody { get; set; }
         public int CountOfPerformedTacts { get; set; }
         public event Action OnContextCleared;
+        private readonly int _maxNotes = 15;
+        public bool HaveASpace => _currentNotes.Count < _maxNotes;
         
         public void AddNoteWithInterval(Tuple<float, Note> intervalAndNote)
         {

@@ -14,7 +14,7 @@ namespace _Game.Scripts.Services.Audio
         }
     }
     
-    public class AudioEventArgs: EventArgs
+    public struct AudioEventArgs
     {
         public AudioClip AudioClip { get; }
 

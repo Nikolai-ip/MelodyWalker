@@ -27,11 +27,12 @@ namespace _Project.Scripts.Infrastructure.DI
                 .BindInterfacesAndSelfTo<SceneMusicPackSwitcher>()
                 .AsSingle()
                 .WithArguments(_scenesMusicData);
-            
+
+            Container.Bind<AudioCueEventChanel_SO>().FromInstance(_soundChanel).AsSingle();
             Container
                 .BindInterfacesAndSelfTo<SoundsService>()
                 .AsCached()
-                .WithArguments(_soundChanel, _soundsAudioSourceBuffer);
+                .WithArguments(_soundsAudioSourceBuffer);
         }
     }
 }
