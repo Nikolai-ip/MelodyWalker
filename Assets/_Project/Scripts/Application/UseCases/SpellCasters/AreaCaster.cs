@@ -12,7 +12,7 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
         
         private Collider[] _collidersBuffer = new Collider[10];
 
-        public override void Cast<TTarget>(ISpell<TTarget> spell, float errorPercent) 
+        public override void Cast<TTarget>(ISpell spell, float errorPercent) 
         {
             //todo: Error Percent
             int amountInArea = Physics.OverlapSphereNonAlloc(_playerTransform.position, _areaRadius, _collidersBuffer, _layerMask);
@@ -25,7 +25,7 @@ namespace _Project.Scripts.Application.UseCases.SpellCasters
                     continue;
                 }
                 
-                spell.Apply(target, errorPercent);
+                spell.Apply(target.gameObject, errorPercent);
             }
         }
 

@@ -45,7 +45,9 @@ namespace _Project.Scripts.Application.UseCases.Enemy.AI
             _timerSubscription?.Dispose();
         }
 
-        private void ClearTargetPos()
+        public override void CleanUp() => ClearTargetPos();
+
+        public void ClearTargetPos()
         {
             _targetTransform = null;
             TargetPosition = transform.position;

@@ -1,11 +1,12 @@
 ﻿using System;
+using UnityEngine;
 
 namespace _Project.Scripts.Domain.Entities.Spells
 {
-    public interface ISpell<in TTarget>
+    public interface ISpell
     {
-        void Apply(TTarget target, float errorPercent);
+        void Apply(GameObject target, float errorPercent);
         void Cancel();
-        event Action<ISpell<TTarget>> OnCompleted;
+        event Action<ISpell> OnCompleted;
     }
 }

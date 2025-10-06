@@ -35,9 +35,9 @@ namespace _Project.Scripts.Domain.Services
         private void RunCurrentSpell()
         {
             //_currentMelodyContext.ErrorPercentage.Value < _calcMelodyErrorsRule.AllowedErrorPercentage 
-            if ( _spellDataRepository.Spells.TryGetValue(new Tuple<Melody, int>(_currentMelodyContext.Melody, _currentMelodyContext.CountOfPerformedTacts), out var abilities))
+            if ( _spellDataRepository.Spells.TryGetValue(_currentMelodyContext.Melody, out var abilities))
             {
-                abilities.Invoke(_currentMelodyContext.ErrorPercentage.Value);
+                abilities[_currentMelodyContext.CountOfPerformedTacts].Invoke(_currentMelodyContext.ErrorPercentage.Value);
                 OnMelodySpellCastSuccess?.Invoke(_currentMelodyContext.Melody);
             }
             else

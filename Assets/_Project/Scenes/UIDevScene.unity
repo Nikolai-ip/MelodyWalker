@@ -2010,6 +2010,18 @@ PrefabInstance:
       propertyPath: _protectMelody3
       value: 
       objectReference: {fileID: 11400000, guid: 977344a4a126d874888735a63df6006f, type: 2}
+    - target: {fileID: 3231859071200853726, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
+      propertyPath: _damageFullMelody
+      value: 
+      objectReference: {fileID: 11400000, guid: efb9e81647726f2459677dd88a27e5cf, type: 2}
+    - target: {fileID: 3231859071200853726, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
+      propertyPath: _healingFullMelody
+      value: 
+      objectReference: {fileID: 11400000, guid: 06f86d449c36c0149a3247242ecaca77, type: 2}
+    - target: {fileID: 3231859071200853726, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
+      propertyPath: _protectFullMelody
+      value: 
+      objectReference: {fileID: 11400000, guid: 977344a4a126d874888735a63df6006f, type: 2}
     - target: {fileID: 4973616277891989984, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
       propertyPath: Speed
       value: 5
