@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19087e5da98d4370b227d0ed6332464f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageMelody: {fileID: 11400000, guid: de336516a88fb57419f38d4be13ab423, type: 2}
-  _healingMelody: {fileID: 11400000, guid: 33f5f9a943dc9ad4395e847540b0a06f, type: 2}
-  _protectMelody: {fileID: 0}
+  _damageFullMelody: {fileID: 11400000, guid: efb9e81647726f2459677dd88a27e5cf, type: 2}
+  _healingFullMelody: {fileID: 11400000, guid: 06f86d449c36c0149a3247242ecaca77, type: 2}
+  _protectFullMelody: {fileID: 11400000, guid: 977344a4a126d874888735a63df6006f, type: 2}
   _areaCaster: {fileID: 7699663250457456560}
   _selfCaster: {fileID: 7183183152424581333}
 --- !u!114 &5550156389268810054
@@ -266,7 +266,6 @@ Transform:
   m_Children:
   - {fileID: 8496617025125952940}
   - {fileID: 4634749901632256819}
-  - {fileID: 6928491318087665460}
   - {fileID: 7667067138972060599}
   - {fileID: 1082683526162860949}
   - {fileID: 4126061185656592894}
@@ -364,9 +363,9 @@ MonoBehaviour:
   _acceleration: 10
   _deceleration: 15
   _decelerationThreshold: 0.1
-  _velPower: 1.5
+  _velPower: 1.7
   _rb: {fileID: 7403406763491459836}
-  Speed: 3
+  Speed: 5
 --- !u!114 &2515092336041717427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,74 +533,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &4483410409930183622
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6928491318087665460}
-  - component: {fileID: 6848309368531836498}
-  - component: {fileID: 6967549418046724482}
-  m_Layer: 0
-  m_Name: '[GameObjectContext]'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6928491318087665460
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4483410409930183622}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7771583659769141290}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6848309368531836498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4483410409930183622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 6967549418046724482}
-  _installerPrefabs: []
-  _autoRun: 1
-  _kernel: {fileID: 0}
---- !u!114 &6967549418046724482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4483410409930183622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19087e5da98d4370b227d0ed6332464f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageMelody: {fileID: 11400000, guid: de336516a88fb57419f38d4be13ab423, type: 2}
-  _healingMelody: {fileID: 11400000, guid: 33f5f9a943dc9ad4395e847540b0a06f, type: 2}
-  _protectMelody: {fileID: 11400000, guid: b045591579e62ff46a3c99946238bacd, type: 2}
-  _areaCaster: {fileID: 7699663250457456560}
-  _selfCaster: {fileID: 7183183152424581333}
 --- !u!1 &4506563934468203208
 GameObject:
   m_ObjectHideFlags: 0

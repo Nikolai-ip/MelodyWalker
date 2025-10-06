@@ -35,7 +35,8 @@ namespace _Project.Scripts.Domain.Services
         private void RunCurrentSpell()
         {
             //_currentMelodyContext.ErrorPercentage.Value < _calcMelodyErrorsRule.AllowedErrorPercentage 
-            if ( _spellDataRepository.Spells.TryGetValue(_currentMelodyContext.Melody, out var abilities))
+            
+            if (_currentMelodyContext.Melody != null && _spellDataRepository.Spells.TryGetValue(_currentMelodyContext.Melody, out var abilities))
             {
                 abilities[_currentMelodyContext.CountOfPerformedTacts].Invoke(_currentMelodyContext.ErrorPercentage.Value);
                 OnMelodySpellCastSuccess?.Invoke(_currentMelodyContext.Melody);
@@ -44,10 +45,9 @@ namespace _Project.Scripts.Domain.Services
             {
                 Debug.LogWarning("[SpellRunner] (RunCurrentSpell) Failed to find spell for current melody");
                 OnSpellCastFailed?.Invoke();
-                _currentMelodyContext.ClearContext();
-                _notesBuffer.ClearBuffer();
             }
-
+            _currentMelodyContext.ClearContext();
+            _notesBuffer.ClearBuffer();
         }
 
         public void Dispose()
