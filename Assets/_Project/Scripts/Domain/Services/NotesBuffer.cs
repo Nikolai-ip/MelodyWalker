@@ -49,6 +49,7 @@ namespace _Project.Scripts.Domain.Services
             _timerCts = null;
             _noteBuffer = null;
             _noteDuration = 0;
+            Debug.Log("[NoteBuffer] ClearBuffer");
         }
     }
 }

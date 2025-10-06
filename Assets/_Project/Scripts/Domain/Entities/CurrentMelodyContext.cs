@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UniRx;
+using UnityEngine;
 
 namespace _Project.Scripts.Domain.Entities
 {
@@ -25,6 +26,7 @@ namespace _Project.Scripts.Domain.Entities
             ErrorPercentage.Value = 0;
             Melody = null;
             OnContextCleared?.Invoke();
+            Debug.Log("[CurrentMelodyContext] ClearContext");
         }
 
     }
