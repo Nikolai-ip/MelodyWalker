@@ -5,6 +5,29 @@ using UnityEngine;
 
 namespace _Project.Scripts.Domain.Entities.Spells
 {
+    public class PermanentHealSpell : ISpell
+    {
+        private IHealable _target;
+
+        public event Action<ISpell> OnCompleted;
+
+        public int HealAmount { get; set; } = 3;
+
+        public void Apply(GameObject target, float errorPercent)
+        {
+            if (!target.TryGetComponent(out _target))
+                throw new ArgumentException("No Healable component found");
+            
+            _target.Heal(Mathf.CeilToInt(HealAmount));
+            
+            OnCompleted?.Invoke(this);
+        }
+
+        private void CleanUp() => OnCompleted?.Invoke(this);
+
+        public void Cancel() => CleanUp();
+    }
+    
     public class HealSpell : ISpell
     {
         private IDisposable _timerSubs;

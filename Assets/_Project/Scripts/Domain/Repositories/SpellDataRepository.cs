@@ -14,6 +14,7 @@ namespace _Project.Scripts.Domain.Repositories
         private readonly CastersRepository _castersRepository;
         
         private readonly HealSpell _healSpell = new();
+        private readonly PermanentHealSpell _permanentHealSpell = new();
         private readonly DamageSpell _damageSpell = new();
         private readonly ProtectSpell _protectSpell = new();
         private readonly DashSpell _dashSpell = new();
@@ -73,8 +74,10 @@ namespace _Project.Scripts.Domain.Repositories
                         },
                         (errorPercent) =>
                         {
-                            selfCaster.Cast<Health>(_healSpell, errorPercent);
-                            Debug.Log("HEAL");
+                            selfCaster.Cast<Health>(_permanentHealSpell, errorPercent);
+                            areaCaster.Cast<EnemyController>(_damageSpell, errorPercent);
+
+                            Debug.Log("DRAIN HEALTH");
                         },
                         (errorPercent) =>
                         {
