@@ -15,12 +15,19 @@ namespace _Project.Scripts.Infrastructure.DI
     {
         [SerializeField] private CalcMelodyErrorRule_SO _calcMelodyErrorRule;
         [SerializeField] private MelodyRepository_SO _melodyRepository;
+        [SerializeField] private MelodyRepository_SO _availableOnStartMelodyRepository;
+
         public override void InstallBindings(DiContainer Container)
         {
             Container
                 .Bind<MelodyRepository>()
                 .AsSingle()
                 .WithArguments(_melodyRepository.GetMelodies());
+
+            Container
+                .Bind<PlayerMelodyRepository>()
+                .AsSingle()
+                .WithArguments(_availableOnStartMelodyRepository.GetMelodies());
             
             Container
                 .Bind<CalcMelodyErrorsRule>()
@@ -49,6 +56,8 @@ namespace _Project.Scripts.Infrastructure.DI
             Container
                 .Bind<TactsCounter>()
                 .AsSingle();
+
+            Container.Bind<MelodyReplacer>().AsSingle();
         }
     }
 }
