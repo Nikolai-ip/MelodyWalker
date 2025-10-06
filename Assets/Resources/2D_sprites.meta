@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Project/Scenes/New Scene.unity.meta
+guid: 5fb075b1bda73e84198dc7c561389723
+========
 guid: ddbee306b2e987b4e95c470019e962f1
 folderAsset: yes
+>>>>>>>> 3def1638bc605d842f5e638da156fc8b26a0be91:Assets/Resources/2D_sprites.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

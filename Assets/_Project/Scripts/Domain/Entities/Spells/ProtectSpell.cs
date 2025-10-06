@@ -31,7 +31,6 @@ namespace _Project.Scripts.Domain.Entities.Spells
 
         private void OnStop() => CleanUp();
 
-
         public void Cancel() => CleanUp();
 
         private void CleanUp()
