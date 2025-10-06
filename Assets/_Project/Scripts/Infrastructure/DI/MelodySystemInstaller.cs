@@ -33,7 +33,7 @@ namespace _Project.Scripts.Infrastructure.DI
             
             Container
                 .Bind<NotesBuffer>()
-                .AsTransient();
+                .AsSingle();
 
             Container.Bind<CurrentMelodyContext>().AsSingle();
 
