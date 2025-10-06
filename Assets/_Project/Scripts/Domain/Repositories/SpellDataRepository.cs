@@ -102,14 +102,14 @@ namespace _Project.Scripts.Domain.Repositories
                         },
                         (errorPercent) =>
                         {
+                            selfCaster.Cast<Health>(_invisibleSpell, errorPercent);
+                            Debug.Log("INVISIBLE");
+                        },   
+                        (errorPercent) =>
+                        {
                             selfCaster.Cast<Health>(_protectSpell, errorPercent);
                             Debug.Log("PROTECT");
                         },
-                        (errorPercent) =>
-                        {
-                            selfCaster.Cast<Health>(_invisibleSpell, errorPercent);
-                            Debug.Log("INVISIBLE");
-                        },                        
                         (errorPercent) =>
                         {
                             selfCaster.Cast<Health>(_protectSpell, errorPercent);

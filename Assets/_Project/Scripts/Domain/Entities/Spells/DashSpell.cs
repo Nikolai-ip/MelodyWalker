@@ -11,10 +11,10 @@ namespace _Project.Scripts.Domain.Entities.Spells
 
         private float _prevSpeed;
         private Mover _target;
-        private float _dashTime = 0.05f;
+        private float _dashTime = 0.15f;
         private IDisposable _timerSubs;
 
-        public float Speed { get; set; } = 35f;
+        public float Speed { get; set; } = 55f;
 
         public void Apply(GameObject target, float errorPercent)
         {

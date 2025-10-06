@@ -38,7 +38,9 @@ namespace _Project.Scripts.Domain.Services
             
             if (_currentMelodyContext.Melody != null && _spellDataRepository.Spells.TryGetValue(_currentMelodyContext.Melody, out var abilities))
             {
-                abilities[_currentMelodyContext.CountOfPerformedTacts].Invoke(_currentMelodyContext.ErrorPercentage.Value);
+                int g = _currentMelodyContext.CountOfPerformedTacts - 1;
+                g = Math.Max(g, 0);
+                abilities[g].Invoke(_currentMelodyContext.ErrorPercentage.Value);
                 OnMelodySpellCastSuccess?.Invoke(_currentMelodyContext.Melody);
             }
             else

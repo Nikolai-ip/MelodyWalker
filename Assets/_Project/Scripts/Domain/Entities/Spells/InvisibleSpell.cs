@@ -15,7 +15,7 @@ namespace _Project.Scripts.Domain.Entities.Spells
 
         private float _prevSpeed;
         private InvisibleSpellData _target;
-        private float _invisibleTime = 3f;
+        private float _invisibleTime = 7f;
         private IDisposable _timerSubs;
         
         private readonly BaseEnemyAI[] _allEnemies;
@@ -26,7 +26,7 @@ namespace _Project.Scripts.Domain.Entities.Spells
 
         public void Apply(GameObject target, float errorPercent)
         {
-            _spriteRenderer = target.GetComponent<SpriteRenderer>();
+            _spriteRenderer = target.GetComponentInChildren<SpriteRenderer>();
             _playerCollider = target.GetComponentInChildren<PlayerTag>().GetComponent<Collider>();
 
             var newColor = _spriteRenderer.color;
