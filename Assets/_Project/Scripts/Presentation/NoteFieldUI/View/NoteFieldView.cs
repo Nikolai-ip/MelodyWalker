@@ -1,18 +1,15 @@
 ﻿using System;
 using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Presentation.NoteFieldUI.View
 {
-    public class NoteFieldView: MonoBehaviour, IView<NoteFieldViewData>
+    public class NoteFieldView: MonoBehaviour, IViewEnableable<NoteFieldViewData>
     {
-        private NoteView[] _noteViews;
+        [SerializeField] private NoteView[] _noteViews;
         [SerializeField] private NoteSymbolsData _noteSymbolsData;
-
-        private void Start()
-        {
-            _noteViews = GetComponentsInChildren<NoteView>();
-        }
-
+        [SerializeField] private GameObject _field;
+        
         public void SetData(NoteFieldViewData data)
         {
             if (data.Action == NoteFieldViewData.ActionType.AddNode)
@@ -28,6 +25,16 @@ namespace _Project.Scripts.Presentation.NoteFieldUI.View
                 }   
             }
 
+        }
+
+        public void Show()
+        {
+            _field.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            _field.SetActive(false);
         }
     }
 

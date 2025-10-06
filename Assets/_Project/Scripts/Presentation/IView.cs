@@ -12,7 +12,11 @@ namespace _Project.Scripts.Presentation
         void Show();
         void Hide();
     }
-
+    public interface IViewEnableable
+    {
+        void Show();
+        void Hide();
+    }
     public interface IViewInteractable<out TViewCallback>
     {
         event Action<TViewCallback> Callback;

@@ -189,6 +189,15 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""OpenAvailableMelodies"",
+                    ""type"": ""Button"",
+                    ""id"": ""2e336ea9-f09d-441d-a6aa-5c5b63eda0f0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -312,6 +321,17 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
                     ""action"": ""Note8"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""edfb1eee-f02d-4f5d-ac74-a854bf7d51ed"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenAvailableMelodies"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -331,6 +351,7 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
         m_Player_ApplyCast = m_Player.FindAction("ApplyCast", throwIfNotFound: true);
         m_Player_CancelCast = m_Player.FindAction("CancelCast", throwIfNotFound: true);
         m_Player_MouseScreenPosition = m_Player.FindAction("MouseScreenPosition", throwIfNotFound: true);
+        m_Player_OpenAvailableMelodies = m_Player.FindAction("OpenAvailableMelodies", throwIfNotFound: true);
     }
 
     ~@InputActionsScheme()
@@ -422,6 +443,7 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ApplyCast;
     private readonly InputAction m_Player_CancelCast;
     private readonly InputAction m_Player_MouseScreenPosition;
+    private readonly InputAction m_Player_OpenAvailableMelodies;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -477,6 +499,10 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/MouseScreenPosition".
         /// </summary>
         public InputAction @MouseScreenPosition => m_Wrapper.m_Player_MouseScreenPosition;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/OpenAvailableMelodies".
+        /// </summary>
+        public InputAction @OpenAvailableMelodies => m_Wrapper.m_Player_OpenAvailableMelodies;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -536,6 +562,9 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
             @MouseScreenPosition.started += instance.OnMouseScreenPosition;
             @MouseScreenPosition.performed += instance.OnMouseScreenPosition;
             @MouseScreenPosition.canceled += instance.OnMouseScreenPosition;
+            @OpenAvailableMelodies.started += instance.OnOpenAvailableMelodies;
+            @OpenAvailableMelodies.performed += instance.OnOpenAvailableMelodies;
+            @OpenAvailableMelodies.canceled += instance.OnOpenAvailableMelodies;
         }
 
         /// <summary>
@@ -580,6 +609,9 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
             @MouseScreenPosition.started -= instance.OnMouseScreenPosition;
             @MouseScreenPosition.performed -= instance.OnMouseScreenPosition;
             @MouseScreenPosition.canceled -= instance.OnMouseScreenPosition;
+            @OpenAvailableMelodies.started -= instance.OnOpenAvailableMelodies;
+            @OpenAvailableMelodies.performed -= instance.OnOpenAvailableMelodies;
+            @OpenAvailableMelodies.canceled -= instance.OnOpenAvailableMelodies;
         }
 
         /// <summary>
@@ -697,5 +729,12 @@ public partial class @InputActionsScheme: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMouseScreenPosition(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "OpenAvailableMelodies" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOpenAvailableMelodies(InputAction.CallbackContext context);
     }
 }

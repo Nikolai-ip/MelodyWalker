@@ -1,5 +1,7 @@
-﻿using _Project.Scripts.Domain.Entities;
+﻿using _Project.Scripts.Application.DTOs;
+using _Project.Scripts.Domain.Entities;
 using _Project.Scripts.Domain.Repositories;
+using MessagePipe;
 using UnityEngine;
 
 namespace _Project.Scripts.Domain.Services
@@ -8,11 +10,13 @@ namespace _Project.Scripts.Domain.Services
     {
         private readonly PlayerMelodyRepository _playerMelodyRepository;
         private readonly MelodyDefiner _melodyDefiner;
+        private IPublisher<NewMelodyLearned> _onNewMelodyPublisher;
 
-        public MelodyReplacer(PlayerMelodyRepository playerMelodyRepository, MelodyDefiner melodyDefiner)
+        public MelodyReplacer(PlayerMelodyRepository playerMelodyRepository, MelodyDefiner melodyDefiner, IPublisher<NewMelodyLearned> onNewMelodyPublisher)
         {
             _playerMelodyRepository = playerMelodyRepository;
             _melodyDefiner = melodyDefiner;
+            _onNewMelodyPublisher = onNewMelodyPublisher;
         }
 
         public void ReplaceOrAddMelody(Melody newMelody)
@@ -30,6 +34,7 @@ namespace _Project.Scripts.Domain.Services
                 _playerMelodyRepository.Melodies.Add(newMelody);
                 Debug.Log("[MelodyReplacer] (Add new melody)");
             }
+            _onNewMelodyPublisher.Publish(new NewMelodyLearned(newMelodyNotes));
         }
     }
 }
