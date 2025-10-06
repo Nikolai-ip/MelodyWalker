@@ -18,7 +18,7 @@ namespace _Project.Scripts.Domain.Entities.Spells
 
         public void Apply(GameObject target, float errorPercent)
         {
-            if (!target.TryGetComponent(out IDamageable _target))
+            if (!target.TryGetComponent(out _target))
                 throw new ArgumentException("No Healable component found");
 
             _protectionModifier.IncreaseFactor *= (1 - errorPercent);
