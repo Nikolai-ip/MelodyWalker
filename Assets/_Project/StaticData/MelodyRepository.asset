@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: MelodyRepository
   m_EditorClassIdentifier: 
   <Melodies>k__BackingField:
-  - {fileID: 11400000, guid: de336516a88fb57419f38d4be13ab423, type: 2}
-  - {fileID: 11400000, guid: 33f5f9a943dc9ad4395e847540b0a06f, type: 2}
+  - {fileID: 11400000, guid: 022bbba4730e67e4981017661f539d5f, type: 2}
+  - {fileID: 11400000, guid: b045591579e62ff46a3c99946238bacd, type: 2}
+  - {fileID: 11400000, guid: dee8abdb3dde0e745abd4f31d624c573, type: 2}
