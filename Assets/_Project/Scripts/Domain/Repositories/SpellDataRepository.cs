@@ -17,8 +17,8 @@ namespace _Project.Scripts.Domain.Repositories
         private readonly DamageSpell _damageSpell = new();
         private readonly ProtectSpell _protectSpell = new();
         private readonly DashSpell _dashSpell = new();
+        private readonly SlowerSpell _slowerSpell = new();
         private readonly DashSpell _invisibleSpell = new();
-        
         
         private readonly Dictionary<MelodyType,Melody> _melodies;
 
@@ -47,7 +47,8 @@ namespace _Project.Scripts.Domain.Repositories
                         (errorPercent) =>
                         {
                             areaCaster.Cast<EnemyController>(_damageSpell, errorPercent);
-                            Debug.Log("DAMAGE");
+                            areaCaster.Cast<EnemyController>(_slowerSpell, errorPercent);
+                            Debug.Log("DAMAGA + SLOW");
                         },
                         (errorPercent) =>
                         {

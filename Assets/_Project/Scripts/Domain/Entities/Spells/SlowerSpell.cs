@@ -1,19 +1,20 @@
 ﻿using System;
+using _Project.Scripts.Application.UseCases;
 using _Project.Scripts.Domain.Entities.HealthSystem;
 using UniRx;
 using UnityEngine;
 
 namespace _Project.Scripts.Domain.Entities.Spells
 {
-    public class HealSpell : ISpell
+    public class SlowerSpell : ISpell
     {
         private IDisposable _timerSubs;
-        private float _healTime = 5f;
-        private IHealable _target;
+        private float _slowingTime = 3f;
+        private Mover _target;
+        private float SlowingSpeed = 2f;
+        private float _prevSpeed;
 
         public event Action<ISpell> OnCompleted;
-
-        public int HealAmount { get; set; } = 1;
 
         public void Apply(GameObject target, float errorPercent)
         {
@@ -22,15 +23,13 @@ namespace _Project.Scripts.Domain.Entities.Spells
             
             OnCompleted?.Invoke(this);
 
-            OnTick();
+            _prevSpeed = _target.Speed; 
+            _target.Speed = (SlowingSpeed);
             
             _timerSubs = Observable
-                .Interval(TimeSpan.FromSeconds(1))
-                .TakeUntil(Observable.Timer(TimeSpan.FromSeconds(_healTime * (1 - errorPercent))))
-                .Subscribe(_ => OnTick(), exception => Debug.LogException(exception), OnStop);
+                .Timer(TimeSpan.FromSeconds(_slowingTime * (1f - errorPercent)))
+                .Subscribe(_ => OnStop());
         }
-
-        private void OnTick() => _target.Heal(Mathf.CeilToInt(HealAmount));
 
         private void OnStop() => CleanUp();
 
@@ -38,8 +37,11 @@ namespace _Project.Scripts.Domain.Entities.Spells
         {
             _timerSubs.Dispose();
             _timerSubs = null;
+
+            _target.Speed = _prevSpeed;
+            _target = null;
             
-            Debug.Log("END HEAL");
+            Debug.Log("END SLOWING");
             
             OnCompleted?.Invoke(this);
         }
