@@ -83,7 +83,6 @@ namespace _Project.Scripts.Application.UseCases
         {
             _currentMelodyContext.ClearContext();
             _notesBuffer.ClearBuffer();
-            Debug.Log("Clearing context");
         }
 
         public void Dispose()
