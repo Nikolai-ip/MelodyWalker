@@ -8,6 +8,6 @@ namespace _Project.Scripts.Application.UseCases
         [SerializeField] private Mover _mover;
         [SerializeField] private MouseTargetCalculator _targetCalculator;
 
-        private void Update() => _mover.MoveTo(_targetCalculator.Target);
+        private void FixedUpdate() => _mover.MoveTo(_targetCalculator.Target);
     }
 }
