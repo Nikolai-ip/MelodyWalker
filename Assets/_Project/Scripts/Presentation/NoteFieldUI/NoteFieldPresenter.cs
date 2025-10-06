@@ -36,7 +36,8 @@ namespace _Project.Scripts.Presentation.NoteFieldUI
         {
             _noteFieldView.SetData(new NoteFieldViewData().OnAddNode(_melodyContext.CurrentNotes.Count, note.NoteIndex - 1));
             _errorPercentageView.Show();
-            _errorPercentageView.SetData(new ErrorPercentageViewData(_melodyContext.ErrorPercentage.Value));
+            if (_melodyContext.CurrentNotes.Count > 1)
+                _errorPercentageView.SetData(new ErrorPercentageViewData(_melodyContext.ErrorPercentage.Value, _melodyContext.Melody != null));
         }
         
 

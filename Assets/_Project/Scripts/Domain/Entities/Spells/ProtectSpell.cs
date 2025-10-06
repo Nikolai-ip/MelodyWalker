@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Domain.Entities.Spells
 {
-    public class ProtectSpell : ISpell<IDamageable>
+    public class ProtectSpell : ISpell
     {
         private IDisposable _timerSubs;
         private IDamageable _target;
@@ -14,12 +14,13 @@ namespace _Project.Scripts.Domain.Entities.Spells
         
         public float ProtectionTime { get; set; } = 5;
 
-        public event Action<ISpell<IDamageable>> OnCompleted;
+        public event Action<ISpell> OnCompleted;
 
-        public void Apply(IDamageable target, float errorPercent)
+        public void Apply(GameObject target, float errorPercent)
         {
-            _target = target;
-            
+            if (!target.TryGetComponent(out _target))
+                throw new ArgumentException("No Healable component found");
+
             _protectionModifier.IncreaseFactor *= (1 - errorPercent);
             
             _target.AddModifier(_protectionModifier);

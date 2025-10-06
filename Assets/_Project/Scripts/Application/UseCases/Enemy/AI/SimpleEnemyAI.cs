@@ -14,6 +14,11 @@ namespace _Project.Scripts.Application.UseCases.Enemy.AI
 
         [SerializeField] private float _timeBeforeLostTarget;
 
+        private void Awake()
+        {
+            TargetPosition = transform.position;
+        }
+
         private void OnEnable()
         {
             _zoneTrigger.ZoneEntered += StartFollowing;
@@ -45,7 +50,9 @@ namespace _Project.Scripts.Application.UseCases.Enemy.AI
             _timerSubscription?.Dispose();
         }
 
-        private void ClearTargetPos()
+        public override void CleanUp() => ClearTargetPos();
+
+        public void ClearTargetPos()
         {
             _targetTransform = null;
             TargetPosition = transform.position;

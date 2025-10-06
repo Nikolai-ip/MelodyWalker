@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Game.Scripts.Core.DI;
 using _Project.Scripts.Application.UseCases.Common;
 using _Project.Scripts.Application.UseCases.SpellCasters;
@@ -13,9 +14,10 @@ namespace _Project.Scripts.Infrastructure.DI
 {
     public class SpellSystemInstaller: MonoInstaller
     {
-        [SerializeField] private Melody_SO _damageMelody;
-        [SerializeField] private Melody_SO _healingMelody;
-        [SerializeField] private Melody_SO _protectMelody;
+        [SerializeField] private Melody_SO _damageFullMelody;
+        [SerializeField] private Melody_SO _healingFullMelody;
+        [SerializeField] private Melody_SO _protectFullMelody;
+        
         [SerializeField] private AreaCaster _areaCaster;
         [SerializeField] private SelfCaster _selfCaster;
 
@@ -35,9 +37,9 @@ namespace _Project.Scripts.Infrastructure.DI
                 .AsSingle()
                 .WithArguments(new Dictionary<MelodyType, Melody>()
                 {
-                    { MelodyType.Damage, _damageMelody.GetMelody()},
-                    { MelodyType.Heal, _healingMelody.GetMelody()},
-                    { MelodyType.Protect, _protectMelody.GetMelody()},
+                    { MelodyType.Damage , _damageFullMelody.GetMelody()},
+                    { MelodyType.Heal , _healingFullMelody.GetMelody()},
+                    { MelodyType.Protect , _protectFullMelody.GetMelody()},
                 });
 
             Container

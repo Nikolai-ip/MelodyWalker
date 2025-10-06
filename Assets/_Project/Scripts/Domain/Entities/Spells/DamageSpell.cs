@@ -4,19 +4,22 @@ using UnityEngine;
 
 namespace _Project.Scripts.Domain.Entities.Spells
 {
-    public class DamageSpell : ISpell<IDamageable>
+    public class DamageSpell : ISpell
     {
         public int DamageAmount { get; set; } = 2;
 
-        public void Apply(IDamageable target, float errorPercent)
+        public void Apply(GameObject target, float errorPercent)
         {
+            if (!target.TryGetComponent(out IDamageable targetComponent))
+                throw new ArgumentException("No Healable component found");
+            
             int damage = Mathf.CeilToInt(DamageAmount * (1 - errorPercent));
-            target.TakeDamage(damage);
+            targetComponent.TakeDamage(damage);
             OnCompleted?.Invoke(this);
         }
 
         public void Cancel() => OnCompleted?.Invoke(this);
 
-        public event Action<ISpell<IDamageable>> OnCompleted;
+        public event Action<ISpell> OnCompleted;
     }
 }

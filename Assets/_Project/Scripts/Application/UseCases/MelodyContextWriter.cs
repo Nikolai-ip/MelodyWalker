@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using _Project.Scripts.Domain.Entities;
@@ -38,6 +39,7 @@ namespace _Project.Scripts.Application.UseCases
         private void WriteNote(NoteIndex noteIndex)
         {
              Tuple<float, Note> intervalAndNote;
+             if (!_currentMelodyContext.HaveASpace) return;
              if (!_notesBuffer.IsEmpty)
              {
                  intervalAndNote = _notesBuffer.GetIntervalAndNoteFromBuffer();
@@ -51,8 +53,12 @@ namespace _Project.Scripts.Application.UseCases
                  {
                      _currentMelodyContext.Melody = melody;
                      _currentMelodyContext.ErrorPercentage.Value = _melodyPercentageErrorCalculator.CalcTactsErrorPercentage(melody.Tacts, _currentMelodyContext.CurrentNotes);
+
+                     var test = new List<Note>();
+                     test.AddRange(currentMelody);
+                     test.Add(new Note((int)noteIndex));  
                      _currentMelodyContext.CountOfPerformedTacts =
-                         _tactsCounter.DetectPerformedTacts(currentMelody, melody);
+                         _tactsCounter.DetectPerformedTacts(test, melody);
                      Debug.Log("Found melody " + DebugMelody(melody));
                      Debug.Log("Error percent is" + _currentMelodyContext.ErrorPercentage.Value);
                      Debug.Log("Performed tacts " + _currentMelodyContext.CountOfPerformedTacts);
@@ -60,6 +66,7 @@ namespace _Project.Scripts.Application.UseCases
                  else
                  {
                      Debug.Log("FailedToFindMelody");
+                     _currentMelodyContext.Melody = null;
                  }
              }
              _notesBuffer.AddNoteIndexToBuffer((int)noteIndex);

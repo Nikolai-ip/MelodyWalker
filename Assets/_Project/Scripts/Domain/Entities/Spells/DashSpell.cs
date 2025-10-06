@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace _Project.Scripts.Domain.Entities.Spells
 {
-    public class DashSpell : ISpell<Mover>
+    public class DashSpell : ISpell
     {
-        public event Action<ISpell<Mover>> OnCompleted;
+        public event Action<ISpell> OnCompleted;
 
         private float _prevSpeed;
         private Mover _target;
@@ -16,9 +16,12 @@ namespace _Project.Scripts.Domain.Entities.Spells
 
         public float Speed { get; set; } = 35f;
 
-        public void Apply(Mover target, float errorPercent)
+        public void Apply(GameObject target, float errorPercent)
         {
-            _target = target;
+            if (!target.TryGetComponent(out Mover targetComponent))
+                throw new ArgumentException("No Healable component found");
+
+            _target = targetComponent;
             
             _prevSpeed = _target.Speed;
             _target.Speed = Speed;
