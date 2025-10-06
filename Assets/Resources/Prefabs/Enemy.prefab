@@ -255,7 +255,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
+  _acceleration: 10
+  _deceleration: 15
+  _decelerationThreshold: 0.1
+  _velPower: 1.5
   _offset: {x: 0, y: 1, z: 0}
+  _rb: {fileID: 3846589509085210630}
 --- !u!114 &3809307973850823630
 MonoBehaviour:
   m_ObjectHideFlags: 0
