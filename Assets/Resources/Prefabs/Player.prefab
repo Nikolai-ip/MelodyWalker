@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 3229792731457851756}
+  _dashEffect: {fileID: 0}
+  _healEffect: {fileID: 0}
 --- !u!114 &8788972833866821863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +79,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  _damageEffect: {fileID: 0}
 --- !u!1 &1921511115194680979
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,9 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19087e5da98d4370b227d0ed6332464f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageMelody: {fileID: 11400000, guid: de336516a88fb57419f38d4be13ab423, type: 2}
-  _healingMelody: {fileID: 11400000, guid: 33f5f9a943dc9ad4395e847540b0a06f, type: 2}
-  _protectMelody: {fileID: 0}
+  _damageFullMelody: {fileID: 0}
+  _healingFullMelody: {fileID: 0}
+  _protectFullMelody: {fileID: 0}
   _areaCaster: {fileID: 7699663250457456560}
   _selfCaster: {fileID: 7183183152424581333}
 --- !u!114 &5550156389268810054
@@ -434,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136652b84938468ba811c1d72d44ee8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 5
+  _maxHealth: 10
 --- !u!114 &7794542858597397217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,9 +600,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19087e5da98d4370b227d0ed6332464f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageMelody: {fileID: 11400000, guid: de336516a88fb57419f38d4be13ab423, type: 2}
-  _healingMelody: {fileID: 11400000, guid: 33f5f9a943dc9ad4395e847540b0a06f, type: 2}
-  _protectMelody: {fileID: 11400000, guid: b045591579e62ff46a3c99946238bacd, type: 2}
+  _damageFullMelody: {fileID: 0}
+  _healingFullMelody: {fileID: 0}
+  _protectFullMelody: {fileID: 0}
   _areaCaster: {fileID: 7699663250457456560}
   _selfCaster: {fileID: 7183183152424581333}
 --- !u!1 &4506563934468203208

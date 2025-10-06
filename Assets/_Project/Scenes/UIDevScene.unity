@@ -2024,7 +2024,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 977344a4a126d874888735a63df6006f, type: 2}
     - target: {fileID: 4973616277891989984, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
       propertyPath: Speed
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4973616277891989984, guid: aecf957a2c2dc6741983cf9a629a92c2, type: 3}
       propertyPath: _velPower
