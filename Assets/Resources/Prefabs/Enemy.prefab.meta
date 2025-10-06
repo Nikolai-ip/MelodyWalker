@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Project/Scenes/FirsLevel.meta
+guid: e917e67661ec97648b18ef96a77630ed
+folderAsset: yes
+DefaultImporter:
+========
 guid: 747ae4df32aed1e46aba95a3e231d2fc
 PrefabImporter:
+>>>>>>>> 8e4755a92f761fe81bc29db75bcf03efaccf7fc2:Assets/Resources/Prefabs/Enemy.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace _Project.Scripts.Tools
 {
     [Serializable]
-    class DictionaryInspector<TKey, TValue>
+    public class DictionaryInspector<TKey, TValue>
     {
         [SerializeField] private List<DictionaryElement<TKey, TValue>> _dictionary;
         public Dictionary<TKey, TValue> GetDictionary() 
