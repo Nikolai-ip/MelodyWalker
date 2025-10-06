@@ -16,6 +16,7 @@ namespace _Project.Scripts.Domain.Services
         private CalcMelodyErrorsRule _calcMelodyErrorsRule;
         private NotesBuffer _notesBuffer;
         public event Action OnSpellCastFailed;
+        public event Action<Melody> OnMelodySpellCastSuccess;
 
         public SpellRunner(CurrentMelodyContext currentMelodyContext, IInputService inputService, SpellDataRepository spellDataRepository, CalcMelodyErrorsRule calcMelodyErrorsRule, NotesBuffer notesBuffer)
         {
@@ -37,6 +38,7 @@ namespace _Project.Scripts.Domain.Services
                  && _spellDataRepository.Spells.TryGetValue(_currentMelodyContext.Melody, out var abilities))
             {
                 abilities[_currentMelodyContext.CountOfPerformedTacts].Invoke(_currentMelodyContext.ErrorPercentage.Value);
+                OnMelodySpellCastSuccess?.Invoke(_currentMelodyContext.Melody);
             }
             else
             {
