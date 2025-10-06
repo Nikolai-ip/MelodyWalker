@@ -12,6 +12,7 @@ namespace _Project.Scripts.Infrastructure.Input
         public event Action CastApplied;
         public event Action CastCancelled;
         public event Action<NoteIndex> NotePressed;
+        public event Action OpenAvailableMelodies;
         public Vector2 MouseScreenPosition { get; private set; }
 
         public void Initialize()
@@ -27,6 +28,8 @@ namespace _Project.Scripts.Infrastructure.Input
 
             _inputScheme.Player.ApplyCast.performed += ctx => CastApplied?.Invoke();
             _inputScheme.Player.CancelCast.performed += ctx => CastCancelled?.Invoke();
+            
+            _inputScheme.Player.OpenAvailableMelodies.performed += ctx => OpenAvailableMelodies?.Invoke();
 
             TogglePlayerInput(true);
         }

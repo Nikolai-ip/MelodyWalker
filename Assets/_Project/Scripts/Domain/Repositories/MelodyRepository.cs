@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using _Project.Scripts.Domain.Entities;
-using _Project.Scripts.Domain.Services;
 
 namespace _Project.Scripts.Domain.Repositories
 {
@@ -13,5 +10,10 @@ namespace _Project.Scripts.Domain.Repositories
         {
             Melodies = melodies;
         }
+    }
+
+    public class PlayerMelodyRepository : MelodyRepository
+    {
+        public PlayerMelodyRepository(List<Melody> melodies) : base(melodies) { }
     }
 }

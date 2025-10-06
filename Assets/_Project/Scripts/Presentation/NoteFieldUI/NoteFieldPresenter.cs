@@ -10,10 +10,10 @@ namespace _Project.Scripts.Presentation.NoteFieldUI
     {
         private readonly CurrentMelodyContext _melodyContext;
         private readonly NotesBuffer _notesBuffer;
-        private readonly IView<NoteFieldViewData> _noteFieldView;
+        private readonly IViewEnableable<NoteFieldViewData> _noteFieldView;
         private readonly IViewEnableable<ErrorPercentageViewData> _errorPercentageView;
 
-        public NoteFieldPresenter(IView<NoteFieldViewData> noteFieldView, IViewEnableable<ErrorPercentageViewData> errorPercentageView, CurrentMelodyContext melodyContext, NotesBuffer notesBuffer)
+        public NoteFieldPresenter(IViewEnableable<NoteFieldViewData> noteFieldView, IViewEnableable<ErrorPercentageViewData> errorPercentageView, CurrentMelodyContext melodyContext, NotesBuffer notesBuffer)
         {
             _melodyContext = melodyContext;
             _noteFieldView = noteFieldView;

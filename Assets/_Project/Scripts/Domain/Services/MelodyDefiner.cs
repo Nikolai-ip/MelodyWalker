@@ -8,9 +8,9 @@ namespace _Project.Scripts.Domain.Services
 {
     public class MelodyDefiner
     {
-        private readonly MelodyRepository _melodyRepository;
+        private readonly PlayerMelodyRepository _melodyRepository;
 
-        public MelodyDefiner(MelodyRepository melodyRepository)
+        public MelodyDefiner(PlayerMelodyRepository melodyRepository)
         {
             _melodyRepository = melodyRepository;
         }
