@@ -2990,6 +2990,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MelodyErrorPercentView
       objectReference: {fileID: 0}
+    - target: {fileID: 5769310495672630648, guid: dac73288812c61e4ba49adea3d7f853d, type: 3}
+      propertyPath: _errorPercentagePhrasesData._notValidMelodyText
+      value: 'I don''t know this melody '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780569414362877644, guid: dac73288812c61e4ba49adea3d7f853d, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7104395249784404459, guid: dac73288812c61e4ba49adea3d7f853d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 7873660510524498118, guid: dac73288812c61e4ba49adea3d7f853d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

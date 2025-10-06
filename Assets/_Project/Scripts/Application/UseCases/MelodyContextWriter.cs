@@ -61,6 +61,7 @@ namespace _Project.Scripts.Application.UseCases
                  else
                  {
                      Debug.Log("FailedToFindMelody");
+                     _currentMelodyContext.Melody = null;
                  }
              }
              _notesBuffer.AddNoteIndexToBuffer((int)noteIndex);

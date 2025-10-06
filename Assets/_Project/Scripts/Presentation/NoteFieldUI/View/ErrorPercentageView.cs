@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using _Project.Scripts.Domain.Entities;
 using DG.Tweening;
 using Plugins.DOTweenFramework;
 using TMPro;
@@ -14,10 +15,17 @@ namespace _Project.Scripts.Presentation.NoteFieldUI.View
         [SerializeField] private TextMeshProUGUI _succesStatusText;
         public void SetData(ErrorPercentageViewData data)
         {
-           var phraseData = _errorPercentagePhrasesData.SuccessStatusPhrasesInspector
-               .FirstOrDefault(phrase => data.ErrorPercentage >= phrase.ErrorMinPercentage &&
-                               data.ErrorPercentage <= phrase.ErrorMaxPercentage);
-           _succesStatusText.text = phraseData == null? "" : phraseData.Phrase;
+            if (data.MelodyIsValid)
+            {
+                var phraseData = _errorPercentagePhrasesData.SuccessStatusPhrasesInspector
+                    .FirstOrDefault(phrase => data.ErrorPercentage >= phrase.ErrorMinPercentage &&
+                                              data.ErrorPercentage <= phrase.ErrorMaxPercentage);
+                _succesStatusText.text = phraseData == null ? "" : phraseData.Phrase;
+            }
+            else
+            {
+                _succesStatusText.text = _errorPercentagePhrasesData.NotValidMelodyText;
+            }
         }
 
         public void Show()
@@ -34,10 +42,12 @@ namespace _Project.Scripts.Presentation.NoteFieldUI.View
     public struct ErrorPercentageViewData
     {
         public float ErrorPercentage { get; }
+        public bool MelodyIsValid { get; }
 
-        public ErrorPercentageViewData(float errorPercentage)
+        public ErrorPercentageViewData(float errorPercentage, bool melodyIsValid)
         {
             ErrorPercentage = errorPercentage;
+            MelodyIsValid = melodyIsValid;
         }
     }
 }

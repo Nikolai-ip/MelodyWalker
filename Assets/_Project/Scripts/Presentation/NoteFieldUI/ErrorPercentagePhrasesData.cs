@@ -10,6 +10,9 @@ namespace _Project.Scripts.Presentation.NoteFieldUI
     public class ErrorPercentagePhrasesData
     {
         [SerializeField] private List<PhraseErrorPercentageData> _successStatusPhrasesInspector;
+        [SerializeField] private string _notValidMelodyText;
+
+        public string NotValidMelodyText => _notValidMelodyText;
 
         public List<PhraseErrorPercentageData> SuccessStatusPhrasesInspector => _successStatusPhrasesInspector;
     }
