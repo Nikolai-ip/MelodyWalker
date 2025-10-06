@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Tacts>k__BackingField:
   - <Notes>k__BackingField:
-    - <Interval>k__BackingField: 0.25
-      <NoteIndex>k__BackingField: 1
-    - <Interval>k__BackingField: 0.25
-      <NoteIndex>k__BackingField: 2
-    - <Interval>k__BackingField: 0.25
-      <NoteIndex>k__BackingField: 1
-    - <Interval>k__BackingField: 0.25
+    - <Interval>k__BackingField: 0.5
       <NoteIndex>k__BackingField: 3
+    - <Interval>k__BackingField: 0.5
+      <NoteIndex>k__BackingField: 5
+    - <Interval>k__BackingField: 0.5
+      <NoteIndex>k__BackingField: 7
+    - <Interval>k__BackingField: 0.5
+      <NoteIndex>k__BackingField: 5
